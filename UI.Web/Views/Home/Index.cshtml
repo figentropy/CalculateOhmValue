@@ -1,0 +1,333 @@
+﻿@{
+    ViewBag.Title = "Ohm Resistor Calculator - Hire Erick Now";
+}
+
+<div class="row">
+
+    <p>
+        <h2>4 Strip Resistor</h2>
+    </p>
+    <svg id="resistor" width="100%" height="180">
+        <rect id="main" x="150" y="20" rx="20" ry="20" width="450" height="150" style="fill:white;stroke:black;stroke-width:5;opacity:1.0"></rect>
+        <rect id="l1" x="0" y="80" rx="0" ry="5" width="150" height="20" style="fill:green;opacity:0.5"></rect>
+        <rect id="l2" x="600" y="80" rx="0" ry="5" width="150" height="20" style="fill:green;opacity:0.5"></rect>
+        <rect id="banda" class="bands" x="200" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+        <rect id="bandb" class="bands" x="260" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+        <rect id="bandc" class="bands" x="320" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+        <rect id="bandd" class="bands" x="500" y="23" rx="0" ry="0" width="30" height="144" style="fill:gold;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+    </svg>
+
+    <div id="colorpicker" style="visibility:hidden;">
+
+        <svg id="colorband" width="600" height="50" style="margin-left:80px;border:1px solid black;">
+        </svg>
+
+    </div>
+
+</div>
+
+<div style="margin-top:50px;">
+
+    <table style="border-collapse:collapse;" cellpadding="4">
+        <tr>
+            <td>Resistance</td>
+            <td><input id="resistance" class="form-control" type="text" /></td>
+            <td>ohms</td>
+        </tr>
+        <tr>
+            <td>Tolerance</td>
+            <td><input id="tolerance" class="form-control" type="text" /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Minimum</td>
+            <td><input id="min" class="form-control" type="text" /></td>
+            <td>ohms</td>
+        </tr>
+        <tr>
+            <td>Maximum</td>
+            <td><input id="max" class="form-control" type="text" /></td>
+            <td>ohms</td>
+        </tr>
+
+    </table>
+</div>
+
+
+
+@section Scripts{
+
+    <script>
+
+
+
+    var api = {
+
+        colorpick: {},
+        calculator: {},
+        data: {},
+        initialize: {}
+    }
+
+
+
+    // -------------------------------------------------------------------
+    //
+    //  Data Setup Section
+    //
+    // -------------------------------------------------------------------
+
+
+    api.data.bandacolor = "";
+    api.data.bandbcolor = "";
+    api.data.bandccolor = "";
+    api.data.banddcolor = "";
+
+    api.data.PREFIXES = [ "", "K", "M", "G" ];
+
+    api.data.bandaColors = ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"];
+    api.data.bandbColors = ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"];
+    api.data.multiplier = ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White", "Gold", "Silver"];
+    api.data.tolerance = ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White", "Gold", "Silver"];
+    api.data.defaultBandColors = ["Orange", "Black", "Red", "Gold"];
+
+    api.data.bandOptions = [
+        { value: 0, tolerance: 0, multiplier: 1, color: "black", label: "Black" },
+        { value: 1, tolerance: 1, multiplier: 10, color: "brown", label: "Brown" },
+        { value: 2, tolerance: 2, multiplier: 100, color: "red", label: "Red" },
+        { value: 3, multiplier: 1000, color: "orange", label: "Orange" },
+        { value: 4, multiplier: 10000, color: "yellow", label: "Yellow" },
+        { value: 5, tolerance: 0.5, multiplier: 100000, color: "green", label: "Green" },
+        { value: 6, tolerance: 0.25, multiplier: 1000000, color: "blue", label: "Blue" },
+        { value: 7, tolerance: 0.10, multiplier: 10000000, color: "violet", label: "Violet" },
+        { value: 8, tolerance: 0.05, color: "grey", label: "Grey" },
+        { value: 9, color: "white", label: "White" },
+        { value: 10, tolerance: 5, multiplier: 0.1, color: "#FFD700", label: "Gold" },
+        { value: 11, tolerance: 10, multiplier: 0.01, color: "#C0C0C0", label: "Silver" },
+    ];
+
+
+    // -------------------------------------------------------------------
+    //
+    //  End Data Setup Section
+    //
+    // -------------------------------------------------------------------
+
+
+
+
+
+    // -------------------------------------------------------------------
+    //
+    //  Colorpick Section
+    //
+    // -------------------------------------------------------------------
+
+
+
+    api.colorpick.Show = function (bandid) {
+
+
+        var colors = [ "Black","Brown","Red","Orange","Yellow","Green","Blue","Violet","Gray","White","Gold","Silver"];
+
+
+        var count = colors.length;
+
+        var svg = document.getElementById("colorband");
+
+
+
+
+        for (var i = 0; i < count; i++) {
+
+            var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            rect.setAttribute("fill", colors[i]);
+            rect.setAttribute("width", "50px");
+            rect.setAttribute("height", "50px");
+            rect.setAttribute("cursor", "pointer");
+            rect.setAttribute("data-colorindex", i);
+            rect.setAttribute("data-bandid", bandid);
+            rect.setAttribute("x", i * 50);
+            rect.setAttribute("y", 0);
+            rect.style.opacity = 1.0
+
+
+            rect.onclick = function () {
+
+                var colorid = this.getAttribute("data-colorindex");
+                var bandid = this.getAttribute("data-bandid");
+
+                var colorband = document.getElementsByTagNameNS("http://www.w3.org/2000/svg", bandid);
+
+                // debugger;
+
+                if (bandid == "banda") api.data.bandacolor = colors[colorid];
+                if (bandid == "bandb") api.data.bandbcolor = colors[colorid];
+                if (bandid == "bandc") api.data.bandccolor = colors[colorid];
+                if (bandid == "bandd") api.data.banddcolor = colors[colorid];
+
+
+
+                $("#" + bandid).css("fill", colors[colorid]);
+
+                $("#colorpicker").css("visibility", "hidden");
+
+                if (api.data.bandacolor != "" &&
+                    api.data.bandbcolor != "" &&
+                    api.data.bandccolor != "" &&
+                    api.data.banddcolor != "") api.calculator.compute();
+
+            };
+
+
+            svg.appendChild(rect);
+
+        }
+
+        svg.setAttribute("width", 50 * count);
+        $("#colorpicker").css("visibility", "visible");
+
+
+
+
+    }
+
+
+    // -------------------------------------------------------------------
+    //
+    //  End Colorpick Section
+    //
+    // -------------------------------------------------------------------
+
+
+
+
+
+    // -------------------------------------------------------------------
+    //
+    //  Calculator Section
+    //
+    // -------------------------------------------------------------------
+
+
+
+    api.calculator.compute = function () {
+
+        var data = {
+            "banda": api.data.bandacolor,
+            "bandb": api.data.bandbcolor,
+            "bandc": api.data.bandccolor,
+            "bandd": api.data.banddcolor
+        }
+
+
+           $.ajax({
+                url: '@Url.Action("CalculateOhms", "Home")' ,
+                type: 'POST',
+                data: JSON.stringify(data),
+                datatype: "json",
+                contentType: "application/json; charset=utf-8",
+
+                beforeSend: function () {
+
+                },
+
+                error: function (xhr, ajaxOptions, thrownError) {
+                    debugger;
+                    alert(xhr.status);
+                    alert(thrownError);
+                    alert(xhr.responseText);
+                },
+
+                complete: function () {
+
+                },
+                success: function (db) {
+
+                    var result = api.calculator.formatResult(db);
+
+                    $("#resistance").val(result);
+
+
+                }
+            });
+
+    }
+
+
+
+        api.calculator.formatResult = function (resistance) {
+
+                var i = resistance;
+                var index = 0;
+
+                while (i >= 1000) {
+                    i /= 1000;
+                    ++index;
+                }
+
+                return i + " " + api.data.PREFIXES[index] + "Ω";
+        }
+
+
+    // -------------------------------------------------------------------
+    //
+    //  End Calculator Section
+    //
+    // -------------------------------------------------------------------
+
+
+
+
+        api.initialize = function () {
+
+
+            // Set default band colors
+            // --------------------------------------------------------------
+
+            for (var i = 0; i < api.data.defaultBandColors.length; i++) {
+
+                if (i == 0) {
+                    api.data.bandacolor = api.data.defaultBandColors[i];
+                    $("#banda").css("fill", api.data.defaultBandColors[i]);
+                }
+                if (i == 1) {
+                    api.data.bandbcolor = api.data.defaultBandColors[i];
+                    $("#bandb").css("fill", api.data.defaultBandColors[i]);
+                }
+                if (i == 2) {
+                    api.data.bandccolor = api.data.defaultBandColors[i];
+                    $("#bandc").css("fill", api.data.defaultBandColors[i]);
+                }
+                if (i == 3) {
+                    api.data.banddcolor = api.data.defaultBandColors[i];
+                    $("#bandd").css("fill", api.data.defaultBandColors[i]);
+                }
+                
+            }
+
+            api.calculator.compute();
+
+            // --------------------------------------------------------------
+
+
+            $(".bands").on("click", function () {
+
+                api.colorpick.Show(this.id);
+
+            });
+
+
+
+        }
+
+
+
+
+        api.initialize();
+
+
+
+    </script>
+
+}
