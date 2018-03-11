@@ -29,15 +29,26 @@ namespace UI.Web.Controllers
 
 
         [HttpPost]
-        public JsonResult CalculateOhms(string banda, string bandb, string bandc, string bandd)
+        public JsonResult CalculateOhms(Domain.Entity.ColorCodes colorcodes)
         {
             Services.UseCase.ResistorActions resistor = new Services.UseCase.ResistorActions();
-            int result = -1;
+            double resistance = -1;
+            double multiplier = 0;
+            double tolerance = 0;
+            double maxresistance = 0;
+            double minresistance = 0;
+            int ohmValue = 0;
 
-            result = resistor.CalculateOhmValue(banda, bandb, bandc, bandd);
+
+            ohmValue = resistor.CalculateOhmValue(colorcodes.banda, colorcodes.bandb, colorcodes.bandc, colorcodes.bandd);
+            multiplier = resistor.GetMultiplier(colorcodes.bandc);
+            resistance = resistor.GetResistance();
+            tolerance = resistor.GetTolerance(colorcodes.bandd);
+            maxresistance = resistor.GetMaxResistance(resistance, tolerance);
+            minresistance = resistor.GetMinResistance(resistance, tolerance);
 
 
-            return Json(result);
+            return Json( new { Resistance = resistance, Tolerance = tolerance, MaxResistance = maxresistance, MinResistance = minresistance });
 
         }
     }

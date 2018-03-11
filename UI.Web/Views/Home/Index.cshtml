@@ -8,9 +8,9 @@
         <h2>4 Strip Resistor</h2>
     </p>
     <svg id="resistor" width="100%" height="180">
-        <rect id="main" x="150" y="20" rx="20" ry="20" width="450" height="150" style="fill:white;stroke:black;stroke-width:5;opacity:1.0"></rect>
-        <rect id="l1" x="0" y="80" rx="0" ry="5" width="150" height="20" style="fill:green;opacity:0.5"></rect>
-        <rect id="l2" x="600" y="80" rx="0" ry="5" width="150" height="20" style="fill:green;opacity:0.5"></rect>
+        <rect id="main" x="150" y="20" rx="20" ry="20" width="450" height="150" style="fill:#d6d6d6;stroke:black;stroke-width:5;opacity:1.0"></rect>
+        <rect id="l1" x="0" y="80" rx="0" ry="5" width="150" height="20" style="fill:#d6d6d6;opacity:1.0"></rect>
+        <rect id="l2" x="600" y="80" rx="0" ry="5" width="150" height="20" style="fill:#d6d6d6;opacity:1.0"></rect>
         <rect id="banda" class="bands" x="200" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
         <rect id="bandb" class="bands" x="260" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
         <rect id="bandc" class="bands" x="320" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
@@ -31,22 +31,22 @@
     <table style="border-collapse:collapse;" cellpadding="4">
         <tr>
             <td>Resistance</td>
-            <td><input id="resistance" class="form-control" type="text" /></td>
+            <td><span id="resistance"></span></td>
             <td>ohms</td>
         </tr>
         <tr>
             <td>Tolerance</td>
-            <td><input id="tolerance" class="form-control" type="text" /></td>
+            <td><span id="tolerance"></span></td>
             <td></td>
         </tr>
         <tr>
-            <td>Minimum</td>
-            <td><input id="min" class="form-control" type="text" /></td>
+            <td>Minimum Resistance</td>
+            <td><span id="minresistance"></span></td>
             <td>ohms</td>
         </tr>
         <tr>
-            <td>Maximum</td>
-            <td><input id="max" class="form-control" type="text" /></td>
+            <td>Maximum Resistance</td>
+            <td><span id="maxresistance"></span></td>
             <td>ohms</td>
         </tr>
 
@@ -84,6 +84,35 @@
     api.data.banddcolor = "";
 
     api.data.PREFIXES = [ "", "K", "M", "G" ];
+
+        api.data.bandColors = 
+            { banda : ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"] ,
+              bandb: ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"] ,
+              multiplier: [{ color: "White", value : 9 },
+                  { color: "Black", value : 0 },
+                  { color: "Brown", value : 1 },
+                  { color: "Red", value : 2 },
+                  { color: "Orange", value : 3 },
+                  { color: "Yellow", value : 4 },
+                  { color: "Green", value : 5 },
+                  { color: "Blue", value : 6 },
+                  { color: "Violet", value : 7 },
+                  { color: "Gray", value : 8 },
+                  { color: "White", value : 9 },
+                  { color: "Gold", value : -1 },
+                  { color: "Silver", value : -2 }],
+              tolerance: [{ color: "Gold", value: 5 },
+                    { color: "Brown", value: 1 },
+                    { color: "Red", value: 2 },
+                    { color: "Green", value: 0.5 },
+                    { color: "Blue", value: 0.25 },
+                    { color: "Violet", value: 0.1 },
+                    { color: "Gray", value: 0.05 },
+                    { color: "Gold", value: 5 },
+                    { color: "Silver", value: 10 }]
+            };
+
+        
 
     api.data.bandaColors = ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"];
     api.data.bandbColors = ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"];
@@ -244,10 +273,22 @@
                 },
                 success: function (db) {
 
-                    var result = api.calculator.formatResult(db);
+                    var resistance = api.calculator.formatResult(db.Resistance);
+                    var tolerance = db.Tolerance;
+                    var maxresistance = api.calculator.formatResult(db.MaxResistance);
+                    var minresistance = api.calculator.formatResult(db.MinResistance);
 
-                    $("#resistance").val(result);
 
+                    // Display results
+                    // ------------------------------------
+                    //
+                    $("#resistance").html(resistance);
+                    $("#tolerance").html("<span style='text-orientation:upright'>&plusmn;</span> &nbsp;" + tolerance + "%");
+                    $("#maxresistance").html(maxresistance);
+                    $("#minresistance").html(minresistance);
+
+
+                    // ------------------------------------
 
                 }
             });
@@ -303,7 +344,7 @@
                     api.data.banddcolor = api.data.defaultBandColors[i];
                     $("#bandd").css("fill", api.data.defaultBandColors[i]);
                 }
-                
+
             }
 
             api.calculator.compute();
@@ -320,7 +361,6 @@
 
 
         }
-
 
 
 

@@ -204,6 +204,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Domain.Entity\Domain.Entity.csproj">
+      <Project>{08c6b2ef-b013-4ff5-b8d5-ea26b9aefe74}</Project>
+      <Name>Domain.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain.Interface\Domain.Interface.csproj">
+      <Project>{f6f19268-73d0-4dc3-be0c-582378d13029}</Project>
+      <Name>Domain.Interface</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services.UseCase\Services.UseCase.csproj">
       <Project>{ece4cf26-b78c-4036-8985-ae8619e15fdf}</Project>
       <Name>Services.UseCase</Name>

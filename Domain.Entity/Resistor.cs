@@ -48,7 +48,26 @@ namespace Domain.Entity
         /// </summary>
         public double Tolerance { set; get; }
 
-       
+
+        public double Resistance { set; get; }
+
+
+        public double MaxResistance { set; get; }
+
+
+        public double MinResistance
+        {
+            get
+            {
+                return (this.Tolerance / 100) * this.Resistance;
+            }
+            set
+            {
+                this.MinResistance = value;
+            }
+        }
+
+
 
         /// <summary>
         /// public constructor
@@ -96,7 +115,7 @@ namespace Domain.Entity
                 new Resistor(Brushes.White,"White",9,9,NO_COLOR),
                 new Resistor(Brushes.Gold,"Gold",NO_COLOR,-1,5),
                 new Resistor(Brushes.Silver,"Silver",NO_COLOR,-2,10),
-                new Resistor(Brushes.White,"White",NO_COLOR,NO_COLOR,20)
+                new Resistor(Brushes.White,"None",NO_COLOR,NO_COLOR,20)
             };
             return datamap;
         }

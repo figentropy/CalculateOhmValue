@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Entity
 {
-    public class ColorCodeIEC60062_2016
+    public class ColorCodes
     {
-        public string color { get; set; }
-        public int digit { get; set; }
-        public double multiplier { get; set; }
-        public double tolerance { get; set; }
+        public string banda { get; set; }
+        public string bandb { get; set; }
+        public string bandc { get; set; }
+        public string bandd { get; set; }
     }
 }
