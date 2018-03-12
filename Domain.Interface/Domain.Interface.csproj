@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IElectronics.cs" />
+    <Compile Include="IExceptionManager.cs" />
     <Compile Include="IOhmValueCalculator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

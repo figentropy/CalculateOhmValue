@@ -31,7 +31,7 @@ namespace UI.Web.Controllers
         [HttpPost]
         public JsonResult CalculateOhms(Domain.Entity.ColorCodes colorcodes)
         {
-            Services.UseCase.ResistorActions resistor = new Services.UseCase.ResistorActions();
+            Services.UseCase.ResistorActions resistor = new Services.UseCase.ResistorActions(new Infrastructure.ExceptionManager.FileLogger());
             double resistance = -1;
             double multiplier = 0;
             double tolerance = 0;

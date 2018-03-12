@@ -4,16 +4,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Domain.Interface;
 
 
 
 namespace Services.UseCase
 {
 
-    public class ResistorActions : Domain.Interface.IOhmValueCalculator
+
+    public class ResistorActions : IOhmValueCalculator
     {
         //Brush mybrush;
+
+        private readonly IExceptionManager logger;
 
         public Domain.Entity.ColorCodes bandcolors = new Domain.Entity.ColorCodes();
         public double resistance { get; set; }
@@ -22,6 +25,13 @@ namespace Services.UseCase
         public int ohmValue { get; set; }
 
 
+
+
+        public ResistorActions(IExceptionManager tmpLogger)
+        {
+            logger = tmpLogger;
+
+        }
 
         public int CalculateOhmValue(string bandAColor, string bandBColor, string bandCColor, string bandDColor)
         {
@@ -120,19 +130,38 @@ namespace Services.UseCase
 
         public double GetMultiplier(string color)
         {
-            List<Domain.Entity.Resistor> lstresistor = Domain.Entity.Resistor.LoadResistorData();
-            Domain.Entity.Resistor bandc = lstresistor.Where(p => p.Name.ToLower() == color.ToLower()).SingleOrDefault();
+            try
+            {
+                List<Domain.Entity.Resistor> lstresistor = Domain.Entity.Resistor.LoadResistorData();
+                Domain.Entity.Resistor bandc = lstresistor.Where(p => p.Name.ToLower() == color.ToLower()).SingleOrDefault();
 
-            this.multiplier = bandc.Multiplier;
+                this.multiplier = bandc.Multiplier;
 
-            return bandc.Multiplier;
+                return bandc.Multiplier;
+
+            }
+            catch (Exception ex)
+            {
+                logger.Handle(ex);
+
+                return -1;
+            }
 
         }
 
         public double GetResistance()
         {
+            try
+            {
+                return this.resistance = Math.Round((double)(ohmValue * Math.Pow(10, multiplier)), 3);
 
-            return this.resistance = Math.Round((double)(ohmValue * Math.Pow(10, multiplier)),3);
+            }
+            catch (Exception ex)
+            {
+                logger.Handle(ex);
+
+                return -1;
+            }
 
         }
 
@@ -148,10 +177,11 @@ namespace Services.UseCase
                 return banda.Tolerance;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Handle(ex);
 
-                throw;
+                return -1;
             }
         }
 
@@ -169,10 +199,11 @@ namespace Services.UseCase
                 return maxresistance;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Handle(ex);
 
-                throw;
+                return -1;
             }
         }
 
@@ -190,11 +221,13 @@ namespace Services.UseCase
                 return minresistance;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                logger.Handle(ex);
 
-                throw;
+                return -1;
             }
+
         }
 
 

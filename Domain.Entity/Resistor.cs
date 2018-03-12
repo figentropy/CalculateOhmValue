@@ -38,6 +38,7 @@ namespace Domain.Entity
         /// </summary>
         public int Digit { set; get; }
 
+
         /// <summary>
         /// Band resistance multiplier
         /// </summary>

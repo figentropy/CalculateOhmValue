@@ -26,6 +26,10 @@
 
 </div>
 
+<div id="test">
+
+</div>
+
 <div style="margin-top:50px;">
 
     <table style="border-collapse:collapse;" cellpadding="4">
@@ -66,7 +70,9 @@
         colorpick: {},
         calculator: {},
         data: {},
-        initialize: {}
+        initialize: {},
+        resistor: {}
+
     }
 
 
@@ -83,7 +89,7 @@
     api.data.bandccolor = "";
     api.data.banddcolor = "";
 
-    api.data.PREFIXES = [ "", "K", "M", "G" ];
+    api.data.PREFIXES = [ "", "k", "M", "G" ];
 
         api.data.bandColors = 
             { banda : ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"] ,
@@ -360,7 +366,145 @@
 
 
 
+            //api.resistor.drawColorBands();
+            api.resistor.drawResistor();
+            
+
         }
+
+
+
+
+
+
+    // -------------------------------------------------------------------
+    //
+    //  Resistor Drawing Section
+    //
+    // -------------------------------------------------------------------
+
+
+    //< svg id= "resistor" width= "100%" height= "180" >
+    //    <rect id="main" x="150" y="20" rx="20" ry="20" width="450" height="150" style="fill:#d6d6d6;stroke:black;stroke-width:5;opacity:1.0"></rect>
+    //    <rect id="l1" x="0" y="80" rx="0" ry="5" width="150" height="20" style="fill:#d6d6d6;opacity:1.0"></rect>
+    //    <rect id="l2" x="600" y="80" rx="0" ry="5" width="150" height="20" style="fill:#d6d6d6;opacity:1.0"></rect>
+    //    <rect id="banda" class="bands" x="200" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+    //    <rect id="bandb" class="bands" x="260" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+    //    <rect id="bandc" class="bands" x="320" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+    //    <rect id="bandd" class="bands" x="500" y="23" rx="0" ry="0" width="30" height="144" style="fill:gold;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+    //</svg >
+
+
+        function getNode(n, v) {
+            n = document.createElementNS("http://www.w3.org/2000/svg", n);
+            for (var p in v)
+                n.setAttributeNS(null, p, v[p]);
+            return n;
+        }
+
+        api.resistor.drawResistor = function () {
+
+            // Create the svg panel
+            // --------------------------------------------------------------
+            var svgns = "http://www.w3.org/2000/svg";
+            //var svg = document.createElementNS(svgns, "svg");
+            var svg = getNode("svg", { id: "newresistor", width: "100%", height: "180" });
+            //svg.setAttributeNS(getNode("svg", { id: "newresistor", width: "100%", height: "300" }));
+            //svg.setAttributeNS(null, "id", "newresister");
+            //svg.setAttributeNS(null, "width", "100%");
+            //svg.setAttributeNS(null, "height", "180");
+
+            document.getElementById("test").appendChild(svg);
+
+            // --------------------------------------------------------------
+
+
+            // Create the svg panel
+            // --------------------------------------------------------------
+            //var rect = document.createElementNS(svgns, "rect");
+            var rect = getNode("rect", { id: "main3", width: 450, height: 150, x: 150, y: 20, rx: 20, ry: 20, fill: "#d6d6d6", stroke: "black", "stroke-width":5 });
+
+            //rect.appendChild(getNode("rect", { id: "main3", width: 450, height: 150, x: 150, y:20, rx:20, ry:20, fill:"#d6d6d6",cursor:"pointer", stroke:"black","stroke-width":5 }));
+
+            //rect.setAttributeNS(null, "x", 150);
+            //rect.setAttributeNS(null, "y", 2);
+            //rect.setAttributeNS(null, "rx", 20);
+            //rect.setAttributeNS(null, "ry", 20);
+            //rect.setAttributeNS(null, "height", 150);
+            //rect.setAttributeNS(null, "width", 450);
+            //rect.setAttributeNS(null, "fill", "#d6d6d6");
+            //rect.setAttributeNS(null, "cursor", "pointer");
+            //rect.setAttributeNS(null, "stroke", "black");
+            //rect.setAttributeNS(null, "stroke-width", "2");
+            //rect.setAttributeNS(null, "id", "main2");
+
+            svg.appendChild(rect);
+            //document.getElementById("newresistor").appendChild(rect);
+
+
+            //var rect = document.createElementNS(svgns, "rect");
+
+
+            // Draw the significant digit color bars
+            // -----------------------------------------------------------------
+
+            for (var i = 0; i < 3; i++) {
+
+                var rect = getNode("rect", { id: "banda"+(i+1), width: 30, height: 144, x: 200+(i*50), y: 23, fill: "purple", cursor: "pointer", stroke: "black", "stroke-width": 1 });
+
+                // Add click event handler for each significant color bar
+                rect.onclick = function () {
+
+                    //var colorid = this.getAttribute("data-colorindex");
+                    //var bandid = this.getAttribute("data-bandid");
+                    alert(this.getAttribute("id"));
+                }
+
+                svg.appendChild(rect);
+            }
+            
+
+
+            // -----------------------------------------------------------------
+            
+
+            
+
+            // --------------------------------------------------------------
+
+        }
+
+
+
+
+        api.resistor.drawColorBands = function () {
+
+            var svgns = "http://www.w3.org/2000/svg";
+
+            for (var x = 0; x < 2; x++) {
+                var rect = document.createElementNS(svgns, "rect");
+
+                rect.setAttributeNS(null, "x", (x * 50)+200);
+                rect.setAttributeNS(null, "y", 23);
+                rect.setAttributeNS(null, "height", "144");
+                rect.setAttributeNS(null, "width", "30");
+                rect.setAttributeNS(null, "fill", "purple");
+                rect.setAttributeNS(null, "cursor", "pointer");
+
+                document.getElementById("resistor").appendChild(rect);
+
+            }
+
+        }
+
+
+    // -------------------------------------------------------------------
+    //
+    //  End Resistor Drawing Section
+    //
+    // -------------------------------------------------------------------
+
+
 
 
 

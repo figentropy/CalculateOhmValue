@@ -212,6 +212,10 @@
       <Project>{f6f19268-73d0-4dc3-be0c-582378d13029}</Project>
       <Name>Domain.Interface</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.ExceptionManager\Infrastructure.ExceptionManager.csproj">
+      <Project>{d5431040-871c-47d8-b406-5e3438ac42d8}</Project>
+      <Name>Infrastructure.ExceptionManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Services.UseCase\Services.UseCase.csproj">
       <Project>{ece4cf26-b78c-4036-8985-ae8619e15fdf}</Project>
       <Name>Services.UseCase</Name>
