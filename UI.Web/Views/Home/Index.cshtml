@@ -64,6 +64,9 @@
     <script>
 
 
+    var svgns = "http://www.w3.org/2000/svg";
+
+
 
     var api = {
 
@@ -71,7 +74,9 @@
         calculator: {},
         data: {},
         initialize: {},
-        resistor: {}
+        helper: {},
+        resistor: {},
+        state: {}
 
     }
 
@@ -83,7 +88,9 @@
     //
     // -------------------------------------------------------------------
 
+        api.defaultBandCount = 5;
 
+    api.data.defaultBandCount = 4;
     api.data.bandacolor = "";
     api.data.bandbcolor = "";
     api.data.bandccolor = "";
@@ -91,7 +98,7 @@
 
     api.data.PREFIXES = [ "", "k", "M", "G" ];
 
-        api.data.bandColors = 
+        api.data.bandColors =
             { banda : ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"] ,
               bandb: ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"] ,
               multiplier: [{ color: "White", value : 9 },
@@ -118,7 +125,7 @@
                     { color: "Silver", value: 10 }]
             };
 
-        
+
 
     api.data.bandaColors = ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"];
     api.data.bandbColors = ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"];
@@ -149,6 +156,13 @@
     // -------------------------------------------------------------------
 
 
+        api.state = {
+            type: "",
+            bands: [],
+            resistance: 0,
+            tolerance: 0
+        };
+
 
 
 
@@ -175,7 +189,7 @@
 
         for (var i = 0; i < count; i++) {
 
-            var rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+            var rect = document.createElementNS(svgns, "rect");
             rect.setAttribute("fill", colors[i]);
             rect.setAttribute("width", "50px");
             rect.setAttribute("height", "50px");
@@ -192,7 +206,7 @@
                 var colorid = this.getAttribute("data-colorindex");
                 var bandid = this.getAttribute("data-bandid");
 
-                var colorband = document.getElementsByTagNameNS("http://www.w3.org/2000/svg", bandid);
+                var colorband = document.getElementsByTagNameNS(svgns, bandid);
 
                 // debugger;
 
@@ -202,6 +216,9 @@
                 if (bandid == "bandd") api.data.banddcolor = colors[colorid];
 
 
+                //for (var i = 0; i < bandC; i++) {
+
+                //}
 
                 $("#" + bandid).css("fill", colors[colorid]);
 
@@ -336,6 +353,7 @@
 
                 if (i == 0) {
                     api.data.bandacolor = api.data.defaultBandColors[i];
+
                     $("#banda").css("fill", api.data.defaultBandColors[i]);
                 }
                 if (i == 1) {
@@ -368,7 +386,7 @@
 
             //api.resistor.drawColorBands();
             api.resistor.drawResistor();
-            
+
 
         }
 
@@ -395,80 +413,75 @@
     //</svg >
 
 
-        function getNode(n, v) {
-            n = document.createElementNS("http://www.w3.org/2000/svg", n);
-            for (var p in v)
-                n.setAttributeNS(null, p, v[p]);
-            return n;
-        }
+        //function getNode(n, v) {
+        //    n = document.createElementNS("http://www.w3.org/2000/svg", n);
+        //    for (var p in v)
+        //        n.setAttributeNS(null, p, v[p]);
+        //    return n;
+        //}
 
         api.resistor.drawResistor = function () {
 
             // Create the svg panel
             // --------------------------------------------------------------
             var svgns = "http://www.w3.org/2000/svg";
-            //var svg = document.createElementNS(svgns, "svg");
-            var svg = getNode("svg", { id: "newresistor", width: "100%", height: "180" });
-            //svg.setAttributeNS(getNode("svg", { id: "newresistor", width: "100%", height: "300" }));
-            //svg.setAttributeNS(null, "id", "newresister");
-            //svg.setAttributeNS(null, "width", "100%");
-            //svg.setAttributeNS(null, "height", "180");
 
+            //var svg = getNode("svg", { id: "newresistor", width: "100%", height: "180" });
+            var svg = api.helper.getNode("svg", { id: "newresistor", width: "100%", height: "180" });
             document.getElementById("test").appendChild(svg);
 
             // --------------------------------------------------------------
 
 
-            // Create the svg panel
+            // Create the main resistor
             // --------------------------------------------------------------
-            //var rect = document.createElementNS(svgns, "rect");
-            var rect = getNode("rect", { id: "main3", width: 450, height: 150, x: 150, y: 20, rx: 20, ry: 20, fill: "#d6d6d6", stroke: "black", "stroke-width":5 });
 
-            //rect.appendChild(getNode("rect", { id: "main3", width: 450, height: 150, x: 150, y:20, rx:20, ry:20, fill:"#d6d6d6",cursor:"pointer", stroke:"black","stroke-width":5 }));
-
-            //rect.setAttributeNS(null, "x", 150);
-            //rect.setAttributeNS(null, "y", 2);
-            //rect.setAttributeNS(null, "rx", 20);
-            //rect.setAttributeNS(null, "ry", 20);
-            //rect.setAttributeNS(null, "height", 150);
-            //rect.setAttributeNS(null, "width", 450);
-            //rect.setAttributeNS(null, "fill", "#d6d6d6");
-            //rect.setAttributeNS(null, "cursor", "pointer");
-            //rect.setAttributeNS(null, "stroke", "black");
-            //rect.setAttributeNS(null, "stroke-width", "2");
-            //rect.setAttributeNS(null, "id", "main2");
+            var rect = api.helper.getNode("rect", { id: "main3", width: 450, height: 150, x: 150, y: 20, rx: 20, ry: 20, fill: "#d6d6d6", stroke: "black", "stroke-width":5 });
 
             svg.appendChild(rect);
-            //document.getElementById("newresistor").appendChild(rect);
 
 
-            //var rect = document.createElementNS(svgns, "rect");
+            // Create resistor left wire
+            // --------------------------------------------------------------
+
+            var rect = api.helper.getNode("rect", { id: "l11", width: 147, height: 20, x: 603, y: 80, rx: 0, ry: 4, fill: "#d6d6d6" });
+
+            svg.appendChild(rect);
+
+
+            // Create resistor right wire
+            // --------------------------------------------------------------
+
+            var rect = api.helper.getNode("rect", { id: "l22", width: 147, height: 20, x: 0, y: 80, rx: 0, ry: 4, fill: "#d6d6d6" });
+
+            svg.appendChild(rect);
 
 
             // Draw the significant digit color bars
             // -----------------------------------------------------------------
 
-            for (var i = 0; i < 3; i++) {
+            api.resistor.drawColorBands(svg, api.defaultBandCount);
+            //for (var i = 0; i < 3; i++) {
 
-                var rect = getNode("rect", { id: "banda"+(i+1), width: 30, height: 144, x: 200+(i*50), y: 23, fill: "purple", cursor: "pointer", stroke: "black", "stroke-width": 1 });
+            //    var rect = api.helper.getNode("rect", { id: "banda"+(i+1), width: 30, height: 144, x: 200+(i*50), y: 23, fill: "purple", cursor: "pointer", stroke: "black", "stroke-width": 1 });
 
-                // Add click event handler for each significant color bar
-                rect.onclick = function () {
+            //    // Add click event handler for each significant color bar
+            //    rect.onclick = function () {
 
-                    //var colorid = this.getAttribute("data-colorindex");
-                    //var bandid = this.getAttribute("data-bandid");
-                    alert(this.getAttribute("id"));
-                }
+            //        //var colorid = this.getAttribute("data-colorindex");
+            //        //var bandid = this.getAttribute("data-bandid");
+            //        alert(this.getAttribute("id"));
+            //    }
 
-                svg.appendChild(rect);
-            }
-            
+            //    svg.appendChild(rect);
+            //}
+
 
 
             // -----------------------------------------------------------------
-            
 
-            
+
+
 
             // --------------------------------------------------------------
 
@@ -477,21 +490,88 @@
 
 
 
-        api.resistor.drawColorBands = function () {
+        api.resistor.drawColorBands = function (svg, bandCount) {
 
-            var svgns = "http://www.w3.org/2000/svg";
 
-            for (var x = 0; x < 2; x++) {
-                var rect = document.createElementNS(svgns, "rect");
 
-                rect.setAttributeNS(null, "x", (x * 50)+200);
-                rect.setAttributeNS(null, "y", 23);
-                rect.setAttributeNS(null, "height", "144");
-                rect.setAttributeNS(null, "width", "30");
-                rect.setAttributeNS(null, "fill", "purple");
-                rect.setAttributeNS(null, "cursor", "pointer");
+            for (var i = 0; i < bandCount; i++) {
 
-                document.getElementById("resistor").appendChild(rect);
+                var rect = api.helper.getNode("rect", { id: "band" + (i + 1), width: 30, height: 144, x: 200 + (i * 50), y: 23, fill: "purple", cursor: "pointer", stroke: "black", "stroke-width": 1 });
+
+                // Add click event handler for each significant color bar
+                rect.onclick = function () {
+                    var x = Number(this.getAttribute("x"));
+                    var y = Number(this.getAttribute("y"));
+                    var width = Number(this.getAttribute("width"));
+                    var height = Number(this.getAttribute("height"));
+                    var cx = x + (width / 2);
+                    var cy = y + (height / 2);
+                    //debugger;
+                    //this.setAttributeNS(null, "transform", "rotate(5)");
+
+
+                    //var anim = document.createElementNS(svgns, "animateTransform");
+                    //anim.setAttributeNS(null, "attributeName", "transform");
+                    ////anim.setAttributeNS(null, "attributeType", "XML");
+                    //anim.setAttributeNS(null, "type", "rotate");
+                    //anim.setAttributeNS(null, "values", "0," + cx + "," + cy + ",360," + cx + "," + cy);
+                    //anim.setAttributeNS(null, "begin", "0s");
+                    //anim.setAttributeNS(null, "dur", "5s");
+                    //anim.setAttributeNS(null, "repeatCount", "indefinite");
+
+
+                    //var anim = document.createElementNS(svgns, "animate");
+                    //anim.setAttributeNS(null, "attributeName", "opacity");
+                    //anim.setAttributeNS(null, "to", 0);
+                    //anim.setAttributeNS(null, "dur", 0.25);
+                    //anim.setAttributeNS(null, "fill", "freeze");
+
+
+
+
+                    //this.appendChild(anim);
+
+                    //this.setAttributeNS(null, "fill", "red");
+                    //var all = document.getElementById("test");
+                    //all.setAttribute("opacity-fill", "0.2");
+                    //all.style.opacity = 0.2;
+                    //this.style.opacity = 1.0;
+
+
+
+                    // Change the opacity of all the bands except the one selected
+                    // -----------------------------------------------------------------
+
+                    //for (var x = 1; x < bandCount + 1; x++) {
+                    //    var currentBand = document.getElementById("band" + x);
+                    //    if (currentBand.id != this.id) currentBand.style.opacity = 0.2;
+                    //}
+
+                    // -----------------------------------------------------------------
+
+
+
+                    //var colorid = this.getAttribute("data-colorindex");
+                    //var bandid = this.getAttribute("data-bandid");
+                    //alert(this.getAttribute("id"));
+                    api.colorpick.Show(this.id);
+
+                }
+
+                svg.appendChild(rect);
+
+
+
+                //var rect = document.createElementNS(svgns, "rect");
+
+                //rect.setAttributeNS(null, "x", (x * 50)+200);
+                //rect.setAttributeNS(null, "y", 23);
+                //rect.setAttributeNS(null, "height", "144");
+                //rect.setAttributeNS(null, "width", "30");
+                //rect.setAttributeNS(null, "fill", "purple");
+                //rect.setAttributeNS(null, "cursor", "pointer");
+
+                //document.getElementById("resistor").appendChild(rect);
 
             }
 
@@ -507,9 +587,42 @@
 
 
 
+    // -------------------------------------------------------------------
+    //
+    //  Helper Functions Section
+    //
+    // -------------------------------------------------------------------
+
+
+        api.helper.getNode = function (n, v) {
+            n = document.createElementNS(svgns, n);
+            for (var p in v)
+                n.setAttributeNS(null, p, v[p]);
+            return n;
+        };
+
+
+    // -------------------------------------------------------------------
+    //
+    //  End Helper Functions Section
+    //
+    // -------------------------------------------------------------------
+
+
+
+
+
+    // -------------------------------------------------------------------
+    //
+    //  Launch Web Application
+    //
+    // -------------------------------------------------------------------
+
 
         api.initialize();
 
+
+    // -------------------------------------------------------------------
 
 
     </script>

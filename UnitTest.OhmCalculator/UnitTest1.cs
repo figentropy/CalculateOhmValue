@@ -10,7 +10,6 @@ namespace UnitTest.OhmCalculator
     public class Class1
     {
 
-        Raygun gun = new Raygun();
 
 
         [TestMethod]
@@ -20,12 +19,12 @@ namespace UnitTest.OhmCalculator
             // Act
             // Assert 
 
-            Bug bug = new Bug();
+            //Bug bug = new Bug();
 
-            gun.FireAt(bug);
+            //gun.FireAt(bug);
 
-            Assert.IsTrue(bug.IsDead());
-            Assert.IsTrue(gun.HasAmmo());
+            //Assert.IsTrue(bug.IsDead());
+            //Assert.IsTrue(gun.HasAmmo());
         }
 
 
@@ -33,13 +32,13 @@ namespace UnitTest.OhmCalculator
         [TestInitialize]
         public void Initialize()
         {
-            gun = new Raygun();
+            //gun = new Raygun();
         }
 
         [TestCleanup]
         public void Cleanup()
         {
-            gun.Recharge();
+            //gun.Recharge();
         }
 
 
@@ -50,10 +49,10 @@ namespace UnitTest.OhmCalculator
         public void TryMakingHeapsOfGuns()
         {
 
-            Raygun[] guns = new Raygun[5];
-            Bug bug = new Bug();
+            //Raygun[] guns = new Raygun[5];
+            //Bug bug = new Bug();
 
-            guns[5].FireAt(bug);
+            //guns[5].FireAt(bug);
 
         }
 

@@ -13,8 +13,8 @@ namespace UnitTest.OhmCalculator
     public class UnitTest2
     {
 
-        Domain.Entity.ColorCodeIEC60062_2016 codes = new Domain.Entity.ColorCodeIEC60062_2016();
-        List<Domain.Entity.ColorCodeIEC60062_2016> colortable = new List<Domain.Entity.ColorCodeIEC60062_2016>();
+        //Domain.Entity.ColorCodeIEC60062_2016 codes = new Domain.Entity.ColorCodeIEC60062_2016();
+        //List<Domain.Entity.ColorCodeIEC60062_2016> colortable = new List<Domain.Entity.ColorCodeIEC60062_2016>();
 
 
         [TestInitialize]
@@ -66,9 +66,9 @@ namespace UnitTest.OhmCalculator
         public void CalculateOhmValue()
         {
             List<Domain.Entity.Resistor> resistors = Domain.Entity.Resistor.LoadResistorData();
-            Services.UseCase.ResistorActions resistorActions = new Services.UseCase.ResistorActions();
+            //Services.UseCase.ResistorActions resistorActions = new Services.UseCase.ResistorActions();
 
-            int result = resistorActions.CalculateOhmValue("red", "blue", "red", "gold");
+            //int result = resistorActions.CalculateOhmValue("red", "blue", "red", "gold");
 
 
         }

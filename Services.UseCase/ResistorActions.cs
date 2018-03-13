@@ -20,7 +20,7 @@ namespace Services.UseCase
 
         public Domain.Entity.ColorCodes bandcolors = new Domain.Entity.ColorCodes();
         public double resistance { get; set; }
-        public int tolerance { get; set; }
+        public double tolerance { get; set; }
         public double multiplier { get; set; }
         public int ohmValue { get; set; }
 
@@ -217,7 +217,8 @@ namespace Services.UseCase
 
                 minresistance = Math.Round(resistance - (resistance * (tolerance / 100)),6);
 
-
+                
+                
                 return minresistance;
 
             }
@@ -231,7 +232,41 @@ namespace Services.UseCase
         }
 
 
+        public (string name, int age) GetStudentInfo(string id)
+        {
+            return (name:"Annie", age:25);
+        }
 
+        public (double resistance, double tolerance, double maxresistance, double minresistance) GetAllComputedValues(string bandAColor, string bandBColor, string bandCColor, string bandDColor)
+        {
+            try
+            {
+                //double resistance = -1;
+                //double multiplier = 0;
+                //double tolerance = 0;
+                double maxresistance = 0;
+                double minresistance = 0;
+                int ohmValue = 0;
+
+
+                ohmValue = CalculateOhmValue(bandAColor, bandBColor, bandCColor, bandDColor);
+                multiplier = GetMultiplier(bandCColor);
+                resistance = GetResistance();
+                tolerance = GetTolerance(bandDColor);
+                maxresistance = GetMaxResistance(resistance, tolerance);
+                minresistance = GetMinResistance(resistance, tolerance);
+
+                return (resistance: resistance, tolerance: tolerance, maxresistance: maxresistance, minresistance: minresistance);
+
+            }
+            catch (Exception ex)
+            {
+                logger.Handle(ex);
+
+                return (resistance: -1, tolerance: -1, maxresistance: -1, minresistance: -1);
+
+            }
+        }
 
 
 
