@@ -88,7 +88,18 @@
     //
     // -------------------------------------------------------------------
 
-        api.defaultBandCount = 5;
+        api.defaultBandCount = 3;
+        api.bandColors =
+        {
+            banda: ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"],
+            bandb: ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"],
+            bandc: ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"],
+            multiplier: ["Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White", "Gold", "Silver"],
+            tolerance: ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "Gold", "Silver"]
+        };
+
+
+    api.currentState = ["Red", "Blue", "Red", "Green", "Gold"];
 
     api.data.defaultBandCount = 4;
     api.data.bandacolor = "";
@@ -177,17 +188,35 @@
     api.colorpick.Show = function (bandid) {
 
 
-        var colors = [ "Black","Brown","Red","Orange","Yellow","Green","Blue","Violet","Gray","White","Gold","Silver"];
+        var colors = [];
 
 
-        var count = colors.length;
+        if (api.currentState.length == 4) {
+
+            if (bandid == "band1") colors = api.bandColors.banda;
+            if (bandid == "band2") colors = api.bandColors.bandb;
+            if (bandid == "band3") colors = api.bandColors.multiplier;
+            if (bandid == "band4") colors = api.bandColors.tolerance;
+
+        }
+
+        if (api.currentState.length == 5) {
+
+            if (bandid == "band1") colors = api.bandColors.banda;
+            if (bandid == "band2") colors = api.bandColors.bandb;
+            if (bandid == "band3") colors = api.bandColors.bandc;
+            if (bandid == "band4") colors = api.bandColors.multiplier;
+            if (bandid == "band5") colors = api.bandColors.tolerance;
+
+        }
+
+
+
 
         var svg = document.getElementById("colorband");
 
 
-
-
-        for (var i = 0; i < count; i++) {
+        for (var i = 0; i < colors.length; i++) {
 
             var rect = document.createElementNS(svgns, "rect");
             rect.setAttribute("fill", colors[i]);
@@ -196,6 +225,7 @@
             rect.setAttribute("cursor", "pointer");
             rect.setAttribute("data-colorindex", i);
             rect.setAttribute("data-bandid", bandid);
+            rect.setAttribute("data-currentStateIndex", bandid);
             rect.setAttribute("x", i * 50);
             rect.setAttribute("y", 0);
             rect.style.opacity = 1.0
@@ -203,24 +233,20 @@
 
             rect.onclick = function () {
 
-                var colorid = this.getAttribute("data-colorindex");
+                var selectedColorid = this.getAttribute("data-colorindex");
                 var bandid = this.getAttribute("data-bandid");
 
                 var colorband = document.getElementsByTagNameNS(svgns, bandid);
 
-                // debugger;
 
-                if (bandid == "banda") api.data.bandacolor = colors[colorid];
-                if (bandid == "bandb") api.data.bandbcolor = colors[colorid];
-                if (bandid == "bandc") api.data.bandccolor = colors[colorid];
-                if (bandid == "bandd") api.data.banddcolor = colors[colorid];
+                if (bandid == "banda") api.data.bandacolor = colors[selectedColorid];
+                if (bandid == "bandb") api.data.bandbcolor = colors[selectedColorid];
+                if (bandid == "bandc") api.data.bandccolor = colors[selectedColorid];
+                if (bandid == "bandd") api.data.banddcolor = colors[selectedColorid];
 
 
-                //for (var i = 0; i < bandC; i++) {
 
-                //}
-
-                $("#" + bandid).css("fill", colors[colorid]);
+                $("#" + bandid).css("fill", colors[selectedColorid]);
 
                 $("#colorpicker").css("visibility", "hidden");
 
@@ -236,7 +262,7 @@
 
         }
 
-        svg.setAttribute("width", 50 * count);
+        svg.setAttribute("width", 50 * colors.length);
         $("#colorpicker").css("visibility", "visible");
 
 
@@ -371,6 +397,8 @@
 
             }
 
+
+
             api.calculator.compute();
 
             // --------------------------------------------------------------
@@ -386,6 +414,14 @@
 
             //api.resistor.drawColorBands();
             api.resistor.drawResistor();
+
+
+            //// Change band colors to default colors
+            //for (var i = 0; i < api.currentState.length; i++) {
+
+            //    var banditem = document.getElementById("band" + (i + 1));
+            //    banditem.setAttributeNS(null, "fill", api.currentState[i]);
+            //}
 
 
         }
@@ -459,8 +495,12 @@
 
             // Draw the significant digit color bars
             // -----------------------------------------------------------------
+            
+            api.resistor.drawColorBands(svg);
+            //api.resistor.drawColorBands(svg, api.defaultBandCount);
 
-            api.resistor.drawColorBands(svg, api.defaultBandCount);
+            //api.currentState
+
             //for (var i = 0; i < 3; i++) {
 
             //    var rect = api.helper.getNode("rect", { id: "banda"+(i+1), width: 30, height: 144, x: 200+(i*50), y: 23, fill: "purple", cursor: "pointer", stroke: "black", "stroke-width": 1 });
@@ -490,13 +530,19 @@
 
 
 
-        api.resistor.drawColorBands = function (svg, bandCount) {
+        api.resistor.drawColorBands = function (svg) {
 
 
 
-            for (var i = 0; i < bandCount; i++) {
+            for (var i = 0; i < api.currentState.length; i++) {
 
-                var rect = api.helper.getNode("rect", { id: "band" + (i + 1), width: 30, height: 144, x: 200 + (i * 50), y: 23, fill: "purple", cursor: "pointer", stroke: "black", "stroke-width": 1 });
+                var padding = 50;
+
+                if (i == api.currentState.length - 1) {
+                    padding = 80;
+                }
+
+                var rect = api.helper.getNode("rect", { id: "band" + (i + 1), width: 30, height: 144, x: 200 + (i * padding), y: 23, fill: api.currentState[i], cursor: "pointer", stroke: "black", "stroke-width": 1 });
 
                 // Add click event handler for each significant color bar
                 rect.onclick = function () {
@@ -554,6 +600,7 @@
                     //var colorid = this.getAttribute("data-colorindex");
                     //var bandid = this.getAttribute("data-bandid");
                     //alert(this.getAttribute("id"));
+
                     api.colorpick.Show(this.id);
 
                 }

@@ -12,22 +12,22 @@ namespace Services.UseCase
 {
 
 
-    public class ResistorActions : IOhmValueCalculator
+    public class ResistorComputations : IOhmValueCalculator
     {
         //Brush mybrush;
 
         private readonly IExceptionManager logger;
 
         public Domain.Entity.ColorCodes bandcolors = new Domain.Entity.ColorCodes();
-        public double resistance { get; set; }
-        public double tolerance { get; set; }
-        public double multiplier { get; set; }
-        public int ohmValue { get; set; }
+        //public double resistance { get; set; }
+        //public double tolerance { get; set; }
+        //public double multiplier { get; set; }
+        //public int ohmValue { get; set; }
 
 
 
 
-        public ResistorActions(IExceptionManager tmpLogger)
+        public ResistorComputations(IExceptionManager tmpLogger)
         {
             logger = tmpLogger;
 
@@ -36,13 +36,8 @@ namespace Services.UseCase
         public int CalculateOhmValue(string bandAColor, string bandBColor, string bandCColor, string bandDColor)
         {
             List<Domain.Entity.Resistor> lstresistor = Domain.Entity.Resistor.LoadResistorData();
-            //List<Domain.Entity.ESeries> lstESeries = Domain.Entity.ESeries.LoadEseriesList();
-            //Domain.Entity.ESeries eseries = new Domain.Entity.ESeries();
             Domain.Entity.Resistor banda = lstresistor.Where(p => p.Name.ToLower() == bandAColor.ToLower()).SingleOrDefault();
             Domain.Entity.Resistor bandb = lstresistor.Where(p => p.Name.ToLower() == bandBColor.ToLower()).SingleOrDefault();
-            //Domain.Entity.Resistor bandc = lstresistor.Where(p => p.Name.ToLower() == bandCColor.ToLower()).SingleOrDefault();
-            //Domain.Entity.Resistor bandd = lstresistor.Where(p => p.Name.ToLower() == bandDColor.ToLower()).SingleOrDefault();
-            //double resistance = 0;
             int ohmValue = 0;
 
             bandcolors.banda = bandAColor;
@@ -52,36 +47,12 @@ namespace Services.UseCase
 
             ohmValue = Convert.ToInt32(banda.Digit.ToString() + bandb.Digit.ToString());
 
-            this.ohmValue = ohmValue;
+            //this.ohmValue = ohmValue;
 
 
             return ohmValue;
 
-            /// -----------------------------------------------------------------------------------------
-            /// 
-            /// Calculate resistance in ohms based on the band colors in function parameters
-            /// 
-            /// -----------------------------------------------------------------------------------------
-
-            //if (banda.Digit != Domain.Entity.Resistor.NO_COLOR && banda.Digit != Domain.Entity.Resistor.NO_COLOR && bandc.Multiplier != Domain.Entity.Resistor.NO_COLOR)
-            //{
-            //    resistance = (double)((banda.Digit * 10 + bandb.Digit) * Math.Pow(10, bandc.Multiplier));
-            //}
-
-            /// -----------------------------------------------------------------------------------------
-
-
-            //resistanceString = Domain.Entity.Resistor.ConvertToResitanceString((long)resistance);
-
-            //var seriesfound = lstESeries.Where(t => t.Tolerance == bandd.Tolerance).SingleOrDefault();
-
-            //eseries.Values = seriesfound.Values;
-
-            //long bestfit = eseries.GetBestFitValue((long)resistance);
-
-
-
-            //return (int)resistance;
+           
 
         }
 
@@ -135,7 +106,7 @@ namespace Services.UseCase
                 List<Domain.Entity.Resistor> lstresistor = Domain.Entity.Resistor.LoadResistorData();
                 Domain.Entity.Resistor bandc = lstresistor.Where(p => p.Name.ToLower() == color.ToLower()).SingleOrDefault();
 
-                this.multiplier = bandc.Multiplier;
+                //this.multiplier = bandc.Multiplier;
 
                 return bandc.Multiplier;
 
@@ -149,11 +120,12 @@ namespace Services.UseCase
 
         }
 
-        public double GetResistance()
+        public double GetResistance(double ohmValue, double multiplier)
         {
             try
             {
-                return this.resistance = Math.Round((double)(ohmValue * Math.Pow(10, multiplier)), 3);
+                //return this.resistance = Math.Round((double)(ohmValue * Math.Pow(10, multiplier)), 3);
+                return Math.Round((ohmValue * Math.Pow(10, multiplier)), 3);
 
             }
             catch (Exception ex)
@@ -232,28 +204,40 @@ namespace Services.UseCase
         }
 
 
-        public (string name, int age) GetStudentInfo(string id)
-        {
-            return (name:"Annie", age:25);
-        }
 
+
+/// <summary>
+/// 
+/// Computes all the values (resistance, tolerance, max resistance, min resistance) for display within a user interface.
+/// 
+/// </summary>
+/// <param name="bandAColor"></param>
+/// <param name="bandBColor"></param>
+/// <param name="bandCColor"></param>
+/// <param name="bandDColor"></param>
+/// <returns></returns>
         public (double resistance, double tolerance, double maxresistance, double minresistance) GetAllComputedValues(string bandAColor, string bandBColor, string bandCColor, string bandDColor)
         {
             try
             {
-                //double resistance = -1;
-                //double multiplier = 0;
-                //double tolerance = 0;
+                double resistance = -1;
+                double multiplier = 0;
+                double tolerance = 0;
                 double maxresistance = 0;
                 double minresistance = 0;
                 int ohmValue = 0;
 
 
                 ohmValue = CalculateOhmValue(bandAColor, bandBColor, bandCColor, bandDColor);
+
                 multiplier = GetMultiplier(bandCColor);
-                resistance = GetResistance();
+
+                resistance = GetResistance(ohmValue, multiplier);
+
                 tolerance = GetTolerance(bandDColor);
+
                 maxresistance = GetMaxResistance(resistance, tolerance);
+
                 minresistance = GetMinResistance(resistance, tolerance);
 
                 return (resistance: resistance, tolerance: tolerance, maxresistance: maxresistance, minresistance: minresistance);

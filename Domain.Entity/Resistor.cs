@@ -19,7 +19,9 @@ namespace Domain.Entity
         /// </summary>
         public const int NO_COLOR = -4;
 
-
+        /// <summary>
+        /// Prefixes used for unit conversion (k
+        /// </summary>
         public static readonly List<string> PREFIXES = new List<string>() { "", "k", "M", "G" };
 
 
@@ -123,7 +125,7 @@ namespace Domain.Entity
 
 
 
-        public static string ConvertToResitanceString(long resistance)
+        public static string UnitConversion(long resistance)
         {
             double i = resistance;
             int index = 0;
