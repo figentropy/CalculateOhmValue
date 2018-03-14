@@ -50,9 +50,8 @@
     <Reference Include="System.Drawing" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UnitTest2.cs" />
+    <Compile Include="UnitTest_ResistorComputations.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
