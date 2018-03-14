@@ -42,14 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorBand.cs" />
-    <Compile Include="ColorCodes.cs" />
-    <Compile Include="ESeries.cs" />
-    <Compile Include="Multiplier.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resistor.cs" />
-    <Compile Include="Resistor4Band.cs" />
-    <Compile Include="Tolerance.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Domain.Interface\Domain.Interface.csproj">

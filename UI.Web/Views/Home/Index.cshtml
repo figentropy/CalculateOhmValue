@@ -8,7 +8,7 @@
         <h2>4 Strip Resistor</h2>
     </p>
 
-    <div id="test">
+    <div id="Resistor">
 
     </div>
 
@@ -233,16 +233,13 @@
 
 
 
+    // This function calls the server to perform call calculations and displays 
+    // those results and performing appropriate unit conversions.
+
     api.calculator.compute = function () {
 
-        //var data = {
-        //    "banda": api.data.bandacolor,
-        //    "bandb": api.data.bandbcolor,
-        //    "bandc": api.data.bandccolor,
-        //    "bandd": api.data.banddcolor
-        //}
 
-
+           // Use ajax to call the server api that performs computations.
            $.ajax({
                 url: '@Url.Action("CalculateOhms", "Home")' ,
                 type: 'POST',
@@ -255,6 +252,7 @@
                 },
 
                 error: function (xhr, ajaxOptions, thrownError) {
+
                     // Display error messages... definitely want to refactor here.
                     // Would want to log these errors to a web service.
                     alert(xhr.status);
@@ -270,10 +268,10 @@
                     // Format the results to correct unit measures
                     // ------------------------------------------------------------------
 
-                    var resistance = api.calculator.formatResult(db.Resistance);
+                    var resistance = api.calculator.unitConversion(db.Resistance);
                     var tolerance = db.Tolerance;
-                    var maxresistance = api.calculator.formatResult(db.MaxResistance);
-                    var minresistance = api.calculator.formatResult(db.MinResistance);
+                    var maxresistance = api.calculator.unitConversion(db.MaxResistance);
+                    var minresistance = api.calculator.unitConversion(db.MinResistance);
 
                     // ------------------------------------------------------------------
 
@@ -295,7 +293,7 @@
 
 
 
-        api.calculator.formatResult = function (resistance) {
+        api.calculator.unitConversion = function (resistance) {
 
                 var i = resistance;
                 var index = 0;
@@ -358,7 +356,7 @@
             // --------------------------------------------------------------
 
             var svg = api.helper.getNode("svg", { id: "newresistor", width: "100%", height: "180" });
-            document.getElementById("test").appendChild(svg);
+            document.getElementById("Resistor").appendChild(svg);
 
             // --------------------------------------------------------------
 
@@ -366,7 +364,7 @@
             // Create the main resistor
             // --------------------------------------------------------------
 
-            var rect = api.helper.getNode("rect", { id: "main3", width: 450, height: 150, x: 150, y: 20, rx: 20, ry: 20, fill: "#d6d6d6", stroke: "black", "stroke-width":5 });
+            var rect = api.helper.getNode("rect", { id: "main", width: 450, height: 150, x: 150, y: 20, rx: 20, ry: 20, fill: "#d6d6d6", stroke: "black", "stroke-width":5 });
 
             svg.appendChild(rect);
 
@@ -374,7 +372,7 @@
             // Create resistor left wire
             // --------------------------------------------------------------
 
-            var rect = api.helper.getNode("rect", { id: "l11", width: 147, height: 20, x: 603, y: 80, rx: 0, ry: 4, fill: "#d6d6d6" });
+            var rect = api.helper.getNode("rect", { id: "leftwire", width: 147, height: 20, x: 603, y: 80, rx: 0, ry: 4, fill: "#d6d6d6" });
 
             svg.appendChild(rect);
 
@@ -382,7 +380,7 @@
             // Create resistor right wire
             // --------------------------------------------------------------
 
-            var rect = api.helper.getNode("rect", { id: "l22", width: 147, height: 20, x: 0, y: 80, rx: 0, ry: 4, fill: "#d6d6d6" });
+            var rect = api.helper.getNode("rect", { id: "rightwire", width: 147, height: 20, x: 0, y: 80, rx: 0, ry: 4, fill: "#d6d6d6" });
 
             svg.appendChild(rect);
 
@@ -424,7 +422,7 @@
                     var height = Number(this.getAttribute("height"));
                     var cx = x + (width / 2);
                     var cy = y + (height / 2);
-                    //debugger;
+
                     //this.setAttributeNS(null, "transform", "rotate(5)");
 
 

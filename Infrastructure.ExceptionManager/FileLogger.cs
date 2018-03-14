@@ -15,6 +15,7 @@ namespace Infrastructure.ExceptionManager
         public void Handle(Exception error)
         {
             // Exception handling code goes here....
+            // Use of a tool like Log4Net to assist with logging would be good (or whatever tool is standard for the organization).
         }
 
     }

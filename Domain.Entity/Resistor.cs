@@ -15,12 +15,12 @@ namespace Domain.Entity
     public class Resistor
     {
         /// <summary>
-        /// Flag for indication uneused color
+        /// Flag for uneused color detection
         /// </summary>
         public const int NO_COLOR = -4;
 
         /// <summary>
-        /// Prefixes used for unit conversion (k
+        /// Prefixes used for unit conversion
         /// </summary>
         public static readonly List<string> PREFIXES = new List<string>() { "", "k", "M", "G" };
 

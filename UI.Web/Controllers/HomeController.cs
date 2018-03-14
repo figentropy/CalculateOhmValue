@@ -29,7 +29,6 @@ namespace UI.Web.Controllers
 
 
         [HttpPost]
-        //public JsonResult CalculateOhms(Domain.Entity.ColorCodes colorcodes)
         public JsonResult CalculateOhms(List<string> selectedColors)
         {
             Services.UseCase.ResistorComputations resistor = new Services.UseCase.ResistorComputations(new Infrastructure.ExceptionManager.FileLogger());
@@ -38,7 +37,6 @@ namespace UI.Web.Controllers
             // This section will return the computation results for a 4 strip resistor
             if (selectedColors.Count == 4)
             {
-                //var results = resistor.GetAllComputedValues(colorcodes.banda, colorcodes.bandb, colorcodes.bandc, colorcodes.bandd);
                 var results = resistor.GetAllComputedValues(selectedColors[0], selectedColors[1], selectedColors[2], selectedColors[3]);
 
                 return Json(new
