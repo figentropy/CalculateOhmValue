@@ -80,7 +80,7 @@
     //
     // -------------------------------------------------------------------
 
-        api.defaultBandCount = 3;
+
         api.bandColors =
         {
             banda: ["Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White"],
@@ -416,60 +416,6 @@
 
                 // Add click event handler for each significant color bar
                 rect.onclick = function () {
-                    var x = Number(this.getAttribute("x"));
-                    var y = Number(this.getAttribute("y"));
-                    var width = Number(this.getAttribute("width"));
-                    var height = Number(this.getAttribute("height"));
-                    var cx = x + (width / 2);
-                    var cy = y + (height / 2);
-
-                    //this.setAttributeNS(null, "transform", "rotate(5)");
-
-
-                    //var anim = document.createElementNS(svgns, "animateTransform");
-                    //anim.setAttributeNS(null, "attributeName", "transform");
-                    ////anim.setAttributeNS(null, "attributeType", "XML");
-                    //anim.setAttributeNS(null, "type", "rotate");
-                    //anim.setAttributeNS(null, "values", "0," + cx + "," + cy + ",360," + cx + "," + cy);
-                    //anim.setAttributeNS(null, "begin", "0s");
-                    //anim.setAttributeNS(null, "dur", "5s");
-                    //anim.setAttributeNS(null, "repeatCount", "indefinite");
-
-
-                    //var anim = document.createElementNS(svgns, "animate");
-                    //anim.setAttributeNS(null, "attributeName", "opacity");
-                    //anim.setAttributeNS(null, "to", 0);
-                    //anim.setAttributeNS(null, "dur", 0.25);
-                    //anim.setAttributeNS(null, "fill", "freeze");
-
-
-
-
-                    //this.appendChild(anim);
-
-                    //this.setAttributeNS(null, "fill", "red");
-                    //var all = document.getElementById("test");
-                    //all.setAttribute("opacity-fill", "0.2");
-                    //all.style.opacity = 0.2;
-                    //this.style.opacity = 1.0;
-
-
-
-                    // Change the opacity of all the bands except the one selected
-                    // -----------------------------------------------------------------
-
-                    //for (var x = 1; x < bandCount + 1; x++) {
-                    //    var currentBand = document.getElementById("band" + x);
-                    //    if (currentBand.id != this.id) currentBand.style.opacity = 0.2;
-                    //}
-
-                    // -----------------------------------------------------------------
-
-
-
-                    //var colorid = this.getAttribute("data-colorindex");
-                    //var bandid = this.getAttribute("data-bandid");
-                    //alert(this.getAttribute("id"));
 
                     api.colorpick.Show(this.id);
 
@@ -477,18 +423,6 @@
 
                 svg.appendChild(rect);
 
-
-
-                //var rect = document.createElementNS(svgns, "rect");
-
-                //rect.setAttributeNS(null, "x", (x * 50)+200);
-                //rect.setAttributeNS(null, "y", 23);
-                //rect.setAttributeNS(null, "height", "144");
-                //rect.setAttributeNS(null, "width", "30");
-                //rect.setAttributeNS(null, "fill", "purple");
-                //rect.setAttributeNS(null, "cursor", "pointer");
-
-                //document.getElementById("resistor").appendChild(rect);
 
             }
 
