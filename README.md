@@ -3,8 +3,8 @@
 # CalculateOhmValue
 Calculates resistor values for 4 band resistors and is easily extendable to 5-6 band resistors without too many changes.
 
-<h4>Tools Used</h4>
-<ul>
-  <li>Visual Studio 2017</li>
-  <li>.NET Framework 4.71</li>
-</ul>
+
+## Installing / Getting started
+
+This solution was designed using Visual Studio 2017 using the 4.71 .NET Framework.
+
