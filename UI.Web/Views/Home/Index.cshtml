@@ -7,15 +7,21 @@
     <p>
         <h2>4 Strip Resistor</h2>
     </p>
-    <svg id="resistor" width="100%" height="180">
-        <rect id="main" x="150" y="20" rx="20" ry="20" width="450" height="150" style="fill:#d6d6d6;stroke:black;stroke-width:5;opacity:1.0"></rect>
-        <rect id="l1" x="0" y="80" rx="0" ry="5" width="150" height="20" style="fill:#d6d6d6;opacity:1.0"></rect>
-        <rect id="l2" x="600" y="80" rx="0" ry="5" width="150" height="20" style="fill:#d6d6d6;opacity:1.0"></rect>
-        <rect id="banda" class="bands" x="200" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
-        <rect id="bandb" class="bands" x="260" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
-        <rect id="bandc" class="bands" x="320" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
-        <rect id="bandd" class="bands" x="500" y="23" rx="0" ry="0" width="30" height="144" style="fill:gold;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
-    </svg>
+
+    <!--
+        <svg id="resistor" width="100%" height="180">
+            <rect id="main" x="150" y="20" rx="20" ry="20" width="450" height="150" style="fill:#d6d6d6;stroke:black;stroke-width:5;opacity:1.0"></rect>
+            <rect id="l1" x="0" y="80" rx="0" ry="5" width="150" height="20" style="fill:#d6d6d6;opacity:1.0"></rect>
+            <rect id="l2" x="600" y="80" rx="0" ry="5" width="150" height="20" style="fill:#d6d6d6;opacity:1.0"></rect>
+            <rect id="banda" class="bands" x="200" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+            <rect id="bandb" class="bands" x="260" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+            <rect id="bandc" class="bands" x="320" y="23" rx="0" ry="0" width="30" height="144" style="fill:black;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+            <rect id="bandd" class="bands" x="500" y="23" rx="0" ry="0" width="30" height="144" style="fill:gold;stroke:black;stroke-width:1;opacity: 1.0;cursor:pointer;"></rect>
+        </svg>
+    -->
+    <div id="test">
+
+    </div>
 
     <div id="colorpicker" style="visibility:hidden;">
 
@@ -26,9 +32,6 @@
 
 </div>
 
-<div id="test">
-
-</div>
 
 <div style="margin-top:50px;">
 
@@ -99,7 +102,7 @@
         };
 
 
-    api.currentState = ["Red", "Blue", "Red", "Green", "Gold"];
+    api.currentState = ["Red", "Blue", "Red", "Gold"];
 
     api.data.defaultBandCount = 4;
     api.data.bandacolor = "";
@@ -233,11 +236,19 @@
 
             rect.onclick = function () {
 
+
+
+
                 var selectedColorid = this.getAttribute("data-colorindex");
                 var bandid = this.getAttribute("data-bandid");
 
                 var colorband = document.getElementsByTagNameNS(svgns, bandid);
 
+                api.currentState[Number(bandid.replace("band", ""))-1] = colors[selectedColorid];
+
+                var selectedBand = document.getElementById(bandid);
+
+                selectedBand.setAttributeNS(null, "fill", colors[selectedColorid]);
 
                 if (bandid == "banda") api.data.bandacolor = colors[selectedColorid];
                 if (bandid == "bandb") api.data.bandbcolor = colors[selectedColorid];
@@ -246,14 +257,17 @@
 
 
 
-                $("#" + bandid).css("fill", colors[selectedColorid]);
+                //$("#" + bandid).css("fill", colors[selectedColorid]);
 
                 $("#colorpicker").css("visibility", "hidden");
 
-                if (api.data.bandacolor != "" &&
-                    api.data.bandbcolor != "" &&
-                    api.data.bandccolor != "" &&
-                    api.data.banddcolor != "") api.calculator.compute();
+
+                api.calculator.compute();
+
+                //if (api.data.bandacolor != "" &&
+                //    api.data.bandbcolor != "" &&
+                //    api.data.bandccolor != "" &&
+                //    api.data.banddcolor != "") api.calculator.compute();
 
             };
 
@@ -291,18 +305,18 @@
 
     api.calculator.compute = function () {
 
-        var data = {
-            "banda": api.data.bandacolor,
-            "bandb": api.data.bandbcolor,
-            "bandc": api.data.bandccolor,
-            "bandd": api.data.banddcolor
-        }
+        //var data = {
+        //    "banda": api.data.bandacolor,
+        //    "bandb": api.data.bandbcolor,
+        //    "bandc": api.data.bandccolor,
+        //    "bandd": api.data.banddcolor
+        //}
 
 
            $.ajax({
                 url: '@Url.Action("CalculateOhms", "Home")' ,
                 type: 'POST',
-                data: JSON.stringify(data),
+                data: JSON.stringify(api.currentState),
                 datatype: "json",
                 contentType: "application/json; charset=utf-8",
 
@@ -311,7 +325,8 @@
                 },
 
                 error: function (xhr, ajaxOptions, thrownError) {
-                    debugger;
+                    // Display error messages... definitely want to refactor here.
+                    // Would want to log these errors to a web service.
                     alert(xhr.status);
                     alert(thrownError);
                     alert(xhr.responseText);
@@ -322,11 +337,15 @@
                 },
                 success: function (db) {
 
+                    // Format the results to correct unit measures
+                    // ------------------------------------------------------------------
+
                     var resistance = api.calculator.formatResult(db.Resistance);
                     var tolerance = db.Tolerance;
                     var maxresistance = api.calculator.formatResult(db.MaxResistance);
                     var minresistance = api.calculator.formatResult(db.MinResistance);
 
+                    // ------------------------------------------------------------------
 
                     // Display results
                     // ------------------------------------
@@ -374,6 +393,33 @@
 
             // Set default band colors
             // --------------------------------------------------------------
+
+
+            //api.currentState
+
+            for (var i = 0; i < api.currentState.length; i++) {
+
+                if (i == 0) {
+                    api.data.bandacolor = api.data.defaultBandColors[i];
+
+                    $("#banda").css("fill", api.data.defaultBandColors[i]);
+                }
+                if (i == 1) {
+                    api.data.bandbcolor = api.data.defaultBandColors[i];
+                    $("#bandb").css("fill", api.data.defaultBandColors[i]);
+                }
+                if (i == 2) {
+                    api.data.bandccolor = api.data.defaultBandColors[i];
+                    $("#bandc").css("fill", api.data.defaultBandColors[i]);
+                }
+                if (i == 3) {
+                    api.data.banddcolor = api.data.defaultBandColors[i];
+                    $("#bandd").css("fill", api.data.defaultBandColors[i]);
+                }
+
+            }
+
+
 
             for (var i = 0; i < api.data.defaultBandColors.length; i++) {
 
