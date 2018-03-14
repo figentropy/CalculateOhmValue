@@ -1,5 +1,5 @@
 
-<img src="https://cdn.vectorstock.com/i/thumb-large/49/68/resistor-icon-on-white-background-resistor-sign-vector-17504968.jpg" style="width:100px;height:100px;">
+<img src="http://clipground.com/images/electrical-resistance-clipart-5.jpg" style="width:70px;height:70px;">
 
 # CalculateOhmValue
 Calculates resistor values
