@@ -1,0 +1,2 @@
+# CalculateOhmValue
+Calculates resistor values
