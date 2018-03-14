@@ -1,14 +1,6 @@
-<table>
-  <tr>
-    <td>
-      <img src="http://clipground.com/images/electrical-resistance-clipart-5.jpg" width="50">
-    </td>
-    <td>
-      # CalculateOhmValue
-    </td>
-  </tr>
+<img src="http://clipground.com/images/electrical-resistance-clipart-5.jpg" width="50">
 
-
+# CalculateOhmValue
 Calculates resistor values
 
 <h4>Tools Used</h4>
