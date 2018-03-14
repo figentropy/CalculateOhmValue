@@ -77,7 +77,7 @@ namespace Services.UseCase
             {
                 logger.Handle(ex);
 
-                return -1;
+                return -33;
             }
 
            
@@ -105,7 +105,7 @@ namespace Services.UseCase
             {
                 logger.Handle(ex);
 
-                return -1;
+                return -33;
             }
 
         }
@@ -128,7 +128,7 @@ namespace Services.UseCase
             {
                 logger.Handle(ex);
 
-                return -1;
+                return -33;
             }
 
         }
@@ -155,7 +155,7 @@ namespace Services.UseCase
             {
                 logger.Handle(ex);
 
-                return -1;
+                return -33;
             }
         }
 
@@ -184,7 +184,7 @@ namespace Services.UseCase
             {
                 logger.Handle(ex);
 
-                return -1;
+                return -33;
             }
         }
 
@@ -213,7 +213,7 @@ namespace Services.UseCase
             {
                 logger.Handle(ex);
 
-                return -1;
+                return -33;
             }
 
         }

@@ -62,6 +62,17 @@ namespace UnitTest.OhmCalculator
         }
 
 
+
+        /// Calculates 2 digit ohm value based on 4 color band resistor values. A 5-6 band resistor would require 5-6 colors.
+        /// </summary>
+        /// <param name="bandAColor">The color of the first figure of component value band.</param>
+        /// <param name="bandBColor">The color of the second significant figure band.</param>
+        /// <param name="bandCColor">The color of the decimal multiplier band.</param>
+        /// <param name="bandDColor">The color of the tolerance value band.</param>
+        /// <returns>Two digit ohm value referencing significant band colors only.</returns>
+        //        public int CalculateOhmValue(string bandAColor, string bandBColor, string bandCColor, string bandDColor)
+
+
         [TestMethod]
         public void CalculateOhmValue()
         {
@@ -72,6 +83,76 @@ namespace UnitTest.OhmCalculator
 
 
         }
+
+        [TestMethod]
+        public void TestAllValidMultiplierColors()
+        {
+            Services.UseCase.ResistorComputations resistor = new Services.UseCase.ResistorComputations(new Infrastructure.ExceptionManager.DatabaseLogger());
+            List<string> colors = new List<string>() { "Black", "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "White", "Gold", "Silver" };
+            double multiplier = 0;
+
+            for (int i = 0; i < colors.Count; i++)
+            {
+                multiplier = resistor.GetMultiplier(colors[i]);
+
+                Assert.IsTrue(multiplier != -33);
+            }
+
+
+
+        }
+
+
+
+        [TestMethod]
+        public void TestAllValidToleranceColors()
+        {
+            Services.UseCase.ResistorComputations resistor = new Services.UseCase.ResistorComputations(new Infrastructure.ExceptionManager.DatabaseLogger());
+            List<string> colors = new List<string>() { "Brown", "Red", "Orange", "Yellow", "Green", "Blue", "Violet", "Gray", "Gold", "Silver","White" };
+            double multiplier = 0;
+
+            for (int i = 0; i < colors.Count; i++)
+            {
+                multiplier = resistor.GetTolerance(colors[i]);
+
+                Assert.IsTrue(multiplier != -33);
+            }
+
+        }
+
+
+
+
+        [TestMethod]
+        public void TestGetMaxResistanceWithKnownValue()
+        {
+            Services.UseCase.ResistorComputations resistor = new Services.UseCase.ResistorComputations(new Infrastructure.ExceptionManager.DatabaseLogger());
+            double maxResistance = 0;
+
+                maxResistance = resistor.GetMaxResistance(10.0, 10);
+
+                Assert.IsTrue(maxResistance == 11);
+
+        }
+
+
+        [TestMethod]
+        public void TestGetMinResistanceWithKnownValue()
+        {
+            Services.UseCase.ResistorComputations resistor = new Services.UseCase.ResistorComputations(new Infrastructure.ExceptionManager.DatabaseLogger());
+            double maxResistance = 0;
+
+            maxResistance = resistor.GetMinResistance(10.0, 10);
+
+            Assert.IsTrue(maxResistance == 9);
+
+        }
+
+
+
+
+
+
 
     }
 }
