@@ -23,22 +23,22 @@ Using Visual Studio, open the solution OhmCalculator.sln
 ```
 
 
-### Building
+## Building
 
 The solution is comprised of 6 projects located in separate solution folders.  To view the ASP.NET MVC
 site that demonstrates all the capabilities of the solution, set the UI.Web project as the default startup project by right clicking on the UI.Web project and selecting the "<i>Set as Startup Project</i>" option.
 
 <dl>
-  <dt>Domain</dt>
+  <dt style="color:blue;">Domain Folder</dt>
   <dd>Domain.Entity</dd>
   <dd>Domain.Interface</dd>
-  <dt>Infrastructure</dt>
+  <dt style="color:blue;">Infrastructure Folder</dt>
   <dd>Infrastructure.ExceptionManager</dd>
-  <dt>Services</dt>
+  <dt>Services Folder</dt>
   <dd>Services.UseCase</dd>
-  <dt>UI</dt>
+  <dt style="color:blue;">UI Folder</dt>
   <dd>UI.Web</dd>
-  <dt>UnitTest</dt>
+  <dt>UnitTest Folder</dt>
   <dd>UnitTest.OhmCalculator</dd>
 </dl>
 
