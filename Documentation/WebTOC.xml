@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="93120745-fb42-41a0-ba9f-d20b213b2fc3" Title="Domain.Entity" Url="html/4ae269e3-7169-4c0d-5e21-e895e8e78144.htm">
+    <HelpTOCNode Id="f013c03c-69ea-447f-b2d4-b1d15f2031c9" Title="Resistor Class" Url="html/3fc0c263-0985-7792-6cbd-34f4caac9f47.htm">
+      <HelpTOCNode Id="f5cf8d50-ee4c-4eea-9558-e4b52e24b6a8" Title="Resistor Constructor " Url="html/c887ad23-f27c-2e3f-6615-55e79f8c8267.htm">
+        <HelpTOCNode Title="Resistor Constructor " Url="html/c0c141ef-3865-c8cb-f3a3-4a92109def74.htm" />
+        <HelpTOCNode Title="Resistor Constructor (Brush, String, Int32, Int32, Double)" Url="html/824ec994-d282-c318-1921-485375498cc9.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e4226fe5-06fd-4070-9a5d-d9e69e3f2a27" Title="Resistor Properties" Url="html/d49885d2-23c5-2729-654e-111ccb4891a9.htm">
+        <HelpTOCNode Title="Color Property " Url="html/ad01cd11-8dc3-51df-2948-a9f7e55b334d.htm" />
+        <HelpTOCNode Title="Digit Property " Url="html/0437410f-52e7-bf68-0258-25eacd899b3c.htm" />
+        <HelpTOCNode Title="MaxResistance Property " Url="html/678d24b9-e228-373e-579e-83deaaea3410.htm" />
+        <HelpTOCNode Title="MinResistance Property " Url="html/8341ad0e-a06f-4f93-4c41-ed138ebb503a.htm" />
+        <HelpTOCNode Title="Multiplier Property " Url="html/490dab08-8833-bf35-558b-864dcaabf792.htm" />
+        <HelpTOCNode Title="Name Property " Url="html/0b2808a2-883b-bb40-f311-f60cc76ac082.htm" />
+        <HelpTOCNode Title="Resistance Property " Url="html/dde8e873-6080-5178-614b-6ac95f5e4391.htm" />
+        <HelpTOCNode Title="Tolerance Property " Url="html/d8fb802a-c058-71da-0cc6-e36902761882.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="87fe0342-25c8-47f5-8d06-db862c73fba6" Title="Resistor Methods" Url="html/ed628226-eabe-a5c9-8443-9cc2b162b364.htm">
+        <HelpTOCNode Title="LoadResistorData Method " Url="html/5a19985f-2abf-71d6-845a-ce728228468f.htm" />
+        <HelpTOCNode Title="UnitConversion Method " Url="html/838f85e8-a3d4-3017-3cbc-92df5b6e2c2d.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="81aa4555-1ff9-448e-a944-fdf2e69d8b97" Title="Resistor Fields" Url="html/a8901977-811a-8281-e086-70895f1d7ab6.htm">
+        <HelpTOCNode Title="NO_COLOR Field" Url="html/7d2e64f0-a429-aedb-730d-f6d67f7db964.htm" />
+        <HelpTOCNode Title="PREFIXES Field" Url="html/f567c855-31ab-d424-ee76-fffab7e0fc70.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="866d3b11-b3db-496a-8d7a-4775a4da572a" Title="Domain.Interface" Url="html/23386c49-99fe-0b6a-66b2-0749ef5e47c0.htm">
+    <HelpTOCNode Id="f300778d-4fc2-4b3a-afc6-ff67645c11c1" Title="IExceptionManager Interface" Url="html/c68ff533-43b5-fe41-e593-a2372ae374f6.htm">
+      <HelpTOCNode Id="9913ee22-7ade-4104-bec2-8e2e02695b83" Title="IExceptionManager Methods" Url="html/a52eed11-d709-41b4-7327-17400c10b186.htm">
+        <HelpTOCNode Title="Handle Method " Url="html/a8ba05aa-32c2-9278-0847-a2854be5e1f3.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="38cf92a4-cae1-4185-a553-35e24f04ae0f" Title="IOhmValueCalculator Interface" Url="html/cd42eaf9-eb3c-3e1e-c1a4-a3c5f1b92f29.htm">
+      <HelpTOCNode Id="cc36a66f-423f-4c6e-b669-30570339012e" Title="IOhmValueCalculator Methods" Url="html/14021300-c869-6b13-8d98-03ccc1cf5b64.htm">
+        <HelpTOCNode Title="CalculateOhmValue Method " Url="html/83e80e9d-e182-2d5a-1947-ee7f142f1ecc.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="c83c65e7-fcf8-4f81-9b23-9b236d0aaba8" Title="Infrastructure.ExceptionManager" Url="html/0d9c8fc7-253e-d2b5-57ef-a9af8b0122c1.htm">
+    <HelpTOCNode Id="17aebfc3-c9e7-4467-a56e-e1f23ef0026f" Title="DatabaseLogger Class" Url="html/51781537-8e15-d922-7666-2c1b3670ba4a.htm">
+      <HelpTOCNode Title="DatabaseLogger Constructor " Url="html/b9571c29-ee71-858d-64d9-245c8fd8e9f5.htm" />
+      <HelpTOCNode Id="95b7c4bd-f2c2-498e-8c8c-d0fcde33072d" Title="DatabaseLogger Methods" Url="html/c8ec36d1-d25a-2423-6d9a-f2daa3bdb052.htm">
+        <HelpTOCNode Title="Handle Method " Url="html/129838e1-bc11-dd85-d54c-7ca2d8115af3.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="943c9a5f-ba78-438f-aa99-6d5d0404f67d" Title="EmailLogger Class" Url="html/5711b30a-fc07-7100-02c9-edcb3d56862d.htm">
+      <HelpTOCNode Title="EmailLogger Constructor " Url="html/2b06f0cd-d8e1-730f-0ef0-1ccbc70daa6a.htm" />
+      <HelpTOCNode Id="95102955-156c-43a9-993e-24154fcd26ce" Title="EmailLogger Methods" Url="html/951db6db-9fcc-e7b1-77a7-c0ee1e49cc96.htm">
+        <HelpTOCNode Title="Handle Method " Url="html/dbb685f4-b01a-8356-22b2-502530685ab6.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="03c72b6a-d2c7-4561-b192-9578dbeb5696" Title="FileLogger Class" Url="html/a2da5d98-59c0-c4c1-1541-54af74ce5cbc.htm">
+      <HelpTOCNode Title="FileLogger Constructor " Url="html/8286aab6-3a56-46d9-a549-d137273285ee.htm" />
+      <HelpTOCNode Id="7c90913c-c4b5-46eb-8883-20b1aa8a6d36" Title="FileLogger Methods" Url="html/d1aa16d4-dda1-a346-86e5-ccc8e09e3f26.htm">
+        <HelpTOCNode Title="Handle Method " Url="html/f591a8b5-5642-95fc-689a-e23562dc7e42.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="e67d0544-7610-4676-8cf8-fa9b071ce808" Title="Services.UseCase" Url="html/2a1b99f0-acbb-f5d8-a92f-c3fd0e25e0b0.htm">
+    <HelpTOCNode Id="180e1210-185a-463c-bc1a-321e791f9950" Title="ResistorComputations Class" Url="html/874d559b-82f8-41a5-cc7c-8d96237b0297.htm">
+      <HelpTOCNode Title="ResistorComputations Constructor " Url="html/579ce497-9812-2a41-19ee-9dd00fd30313.htm" />
+      <HelpTOCNode Title="ResistorComputations Properties" Url="html/4ad30db1-ba64-3dd6-4e21-daea9a9cdc4d.htm" />
+      <HelpTOCNode Id="b0ec4ab3-90c7-455a-a58b-10b56a71d602" Title="ResistorComputations Methods" Url="html/458bdbd9-cc89-7f76-dfd6-ff63f672fb8f.htm">
+        <HelpTOCNode Title="CalculateOhmValue Method " Url="html/d14b162d-3eba-eeda-526c-e1de66ecf720.htm" />
+        <HelpTOCNode Title="GetAllComputedValues Method " Url="html/1842fcec-3d7f-7f8d-8ec8-ab91aa2f34f1.htm" />
+        <HelpTOCNode Title="GetMaxResistance Method " Url="html/257b545d-e7f4-53dd-7189-ba79bdd47e0d.htm" />
+        <HelpTOCNode Title="GetMinResistance Method " Url="html/b7d37ccd-8470-74ee-d4bb-73a61d3c5ad6.htm" />
+        <HelpTOCNode Title="GetMultiplier Method " Url="html/803662b1-d3fd-3545-af7f-c65a16c290e2.htm" />
+        <HelpTOCNode Title="GetResistance Method " Url="html/4ef26386-7801-de22-d332-dc14e21ec7dd.htm" />
+        <HelpTOCNode Title="GetTolerance Method " Url="html/5f3eb79e-a488-68f6-9361-e6ea7ae53989.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="4358b35d-db15-48b2-b152-7d348267d0dc" Title="UI.Web" Url="html/1a384d6c-6240-8238-7a68-55f710d30183.htm">
+    <HelpTOCNode Id="d61d134a-ec0f-4a10-9872-eb80849ce82a" Title="BundleConfig Class" Url="html/1149f150-6533-a635-9974-f6240e390384.htm">
+      <HelpTOCNode Title="BundleConfig Constructor " Url="html/6931a1d8-91b6-d5a9-8f94-41e32e78e689.htm" />
+      <HelpTOCNode Id="04205b40-34bc-4f87-adf9-a98d84883ace" Title="BundleConfig Methods" Url="html/8a63df3e-8004-d875-1922-d78b69380740.htm">
+        <HelpTOCNode Title="RegisterBundles Method " Url="html/76d83de1-caf5-6cef-c583-df7ee882f063.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="eaf9e715-0f7b-4ffb-ae67-39daec5393d2" Title="FilterConfig Class" Url="html/9b1ecaeb-58aa-4180-ae13-6128f5c2f22e.htm">
+      <HelpTOCNode Title="FilterConfig Constructor " Url="html/3c4b0268-3bc0-74a3-0345-dea934a8f696.htm" />
+      <HelpTOCNode Id="1eda2a8a-07be-40a4-9bc6-83fb0674cdda" Title="FilterConfig Methods" Url="html/f77e7811-8d20-835f-a10e-4266329b9b47.htm">
+        <HelpTOCNode Title="RegisterGlobalFilters Method " Url="html/8e7f45e4-75ae-2168-ed44-3a9baa0c3764.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="874ae5cc-4cad-47c3-8214-c4388522b8fc" Title="MvcApplication Class" Url="html/fe39cb64-bcb6-1c90-11ba-8b950946aa88.htm">
+      <HelpTOCNode Title="MvcApplication Constructor " Url="html/c618d0f5-1457-a669-c877-7e2bb940cd0b.htm" />
+      <HelpTOCNode Title="MvcApplication Properties" Url="html/46532e04-62ba-8d40-845e-3c465ff42583.htm" />
+      <HelpTOCNode Id="182002b3-100e-4b44-996d-6b3edd380cad" Title="MvcApplication Methods" Url="html/9329d804-bcd9-0fbd-a813-12a323d4608f.htm">
+        <HelpTOCNode Title="Application_Start Method " Url="html/7611b49a-84e5-5143-dee7-165027fb1746.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="MvcApplication Events" Url="html/f4bf30f4-a00b-8148-d95d-2b332ca5837d.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="9b8fac36-4733-402b-a870-90e24919fdc6" Title="RouteConfig Class" Url="html/4e9e9222-b790-f02b-f93b-708d8482a8fa.htm">
+      <HelpTOCNode Title="RouteConfig Constructor " Url="html/11e2b64d-59f0-cc6b-b089-dd045290f105.htm" />
+      <HelpTOCNode Id="5a8eb220-3629-4475-bfc4-75773f64a057" Title="RouteConfig Methods" Url="html/6ad5359a-1ae0-d6de-ae4c-6899d2976dbe.htm">
+        <HelpTOCNode Title="RegisterRoutes Method " Url="html/59c2c206-f2fe-820a-c616-78afbb033b9d.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="c9c7e060-84eb-4de2-ad2b-63fec45a19db" Title="UI.Web.Controllers" Url="html/d111441f-bd8a-8ad1-4c82-aae29711b886.htm">
+    <HelpTOCNode Id="c1004f89-e739-45ef-8e86-fe6ec2a43234" Title="HomeController Class" Url="html/f91172d6-b0ba-a8ef-c87e-b1d28203819b.htm">
+      <HelpTOCNode Title="HomeController Constructor " Url="html/d24b9949-71c4-2833-bc42-184b1bd91e4a.htm" />
+      <HelpTOCNode Title="HomeController Properties" Url="html/238a85df-ec4c-2c75-c5af-73df6e95a106.htm" />
+      <HelpTOCNode Id="6b7cc646-3e5c-4483-9ed4-398acd0fe123" Title="HomeController Methods" Url="html/c8745174-630a-f029-eb45-07846b7283d7.htm">
+        <HelpTOCNode Title="About Method " Url="html/823b9934-11e8-0622-6a5b-2a6775079a4e.htm" />
+        <HelpTOCNode Title="CalculateOhms Method " Url="html/3bb3387c-9cda-9d99-9604-a86959b7bffd.htm" />
+        <HelpTOCNode Title="Contact Method " Url="html/d24706b9-2f9a-f121-90bf-43983b337ae4.htm" />
+        <HelpTOCNode Title="Index Method " Url="html/bdee8a04-7861-724c-8c53-3827f32b1845.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

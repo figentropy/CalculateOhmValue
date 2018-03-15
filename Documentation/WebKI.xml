@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="About method" Url="html/823b9934-11e8-0622-6a5b-2a6775079a4e.htm" />
+  <HelpKINode Title="Application_Start method" Url="html/7611b49a-84e5-5143-dee7-165027fb1746.htm" />
+  <HelpKINode Title="BundleConfig class">
+    <HelpKINode Title="BundleConfig Class" Url="html/1149f150-6533-a635-9974-f6240e390384.htm" />
+    <HelpKINode Title="constructor" Url="html/6931a1d8-91b6-d5a9-8f94-41e32e78e689.htm" />
+    <HelpKINode Title="methods" Url="html/8a63df3e-8004-d875-1922-d78b69380740.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BundleConfig.BundleConfig constructor" Url="html/6931a1d8-91b6-d5a9-8f94-41e32e78e689.htm" />
+  <HelpKINode Title="BundleConfig.RegisterBundles method" Url="html/76d83de1-caf5-6cef-c583-df7ee882f063.htm" />
+  <HelpKINode Title="CalculateOhms method" Url="html/3bb3387c-9cda-9d99-9604-a86959b7bffd.htm" />
+  <HelpKINode Title="CalculateOhmValue method">
+    <HelpKINode Title="IOhmValueCalculator.CalculateOhmValue Method " Url="html/83e80e9d-e182-2d5a-1947-ee7f142f1ecc.htm" />
+    <HelpKINode Title="ResistorComputations.CalculateOhmValue Method " Url="html/d14b162d-3eba-eeda-526c-e1de66ecf720.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Color property" Url="html/ad01cd11-8dc3-51df-2948-a9f7e55b334d.htm" />
+  <HelpKINode Title="Contact method" Url="html/d24706b9-2f9a-f121-90bf-43983b337ae4.htm" />
+  <HelpKINode Title="DatabaseLogger class">
+    <HelpKINode Title="DatabaseLogger Class" Url="html/51781537-8e15-d922-7666-2c1b3670ba4a.htm" />
+    <HelpKINode Title="constructor" Url="html/b9571c29-ee71-858d-64d9-245c8fd8e9f5.htm" />
+    <HelpKINode Title="methods" Url="html/c8ec36d1-d25a-2423-6d9a-f2daa3bdb052.htm" />
+  </HelpKINode>
+  <HelpKINode Title="DatabaseLogger.DatabaseLogger constructor" Url="html/b9571c29-ee71-858d-64d9-245c8fd8e9f5.htm" />
+  <HelpKINode Title="DatabaseLogger.Handle method" Url="html/129838e1-bc11-dd85-d54c-7ca2d8115af3.htm" />
+  <HelpKINode Title="Digit property" Url="html/0437410f-52e7-bf68-0258-25eacd899b3c.htm" />
+  <HelpKINode Title="Domain.Entity namespace" Url="html/4ae269e3-7169-4c0d-5e21-e895e8e78144.htm" />
+  <HelpKINode Title="Domain.Entity.Resistor class" Url="html/3fc0c263-0985-7792-6cbd-34f4caac9f47.htm" />
+  <HelpKINode Title="Domain.Interface namespace" Url="html/23386c49-99fe-0b6a-66b2-0749ef5e47c0.htm" />
+  <HelpKINode Title="Domain.Interface.IExceptionManager interface" Url="html/c68ff533-43b5-fe41-e593-a2372ae374f6.htm" />
+  <HelpKINode Title="Domain.Interface.IOhmValueCalculator interface" Url="html/cd42eaf9-eb3c-3e1e-c1a4-a3c5f1b92f29.htm" />
+  <HelpKINode Title="EmailLogger class">
+    <HelpKINode Title="EmailLogger Class" Url="html/5711b30a-fc07-7100-02c9-edcb3d56862d.htm" />
+    <HelpKINode Title="constructor" Url="html/2b06f0cd-d8e1-730f-0ef0-1ccbc70daa6a.htm" />
+    <HelpKINode Title="methods" Url="html/951db6db-9fcc-e7b1-77a7-c0ee1e49cc96.htm" />
+  </HelpKINode>
+  <HelpKINode Title="EmailLogger.EmailLogger constructor" Url="html/2b06f0cd-d8e1-730f-0ef0-1ccbc70daa6a.htm" />
+  <HelpKINode Title="EmailLogger.Handle method" Url="html/dbb685f4-b01a-8356-22b2-502530685ab6.htm" />
+  <HelpKINode Title="FileLogger class">
+    <HelpKINode Title="FileLogger Class" Url="html/a2da5d98-59c0-c4c1-1541-54af74ce5cbc.htm" />
+    <HelpKINode Title="constructor" Url="html/8286aab6-3a56-46d9-a549-d137273285ee.htm" />
+    <HelpKINode Title="methods" Url="html/d1aa16d4-dda1-a346-86e5-ccc8e09e3f26.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FileLogger.FileLogger constructor" Url="html/8286aab6-3a56-46d9-a549-d137273285ee.htm" />
+  <HelpKINode Title="FileLogger.Handle method" Url="html/f591a8b5-5642-95fc-689a-e23562dc7e42.htm" />
+  <HelpKINode Title="FilterConfig class">
+    <HelpKINode Title="FilterConfig Class" Url="html/9b1ecaeb-58aa-4180-ae13-6128f5c2f22e.htm" />
+    <HelpKINode Title="constructor" Url="html/3c4b0268-3bc0-74a3-0345-dea934a8f696.htm" />
+    <HelpKINode Title="methods" Url="html/f77e7811-8d20-835f-a10e-4266329b9b47.htm" />
+  </HelpKINode>
+  <HelpKINode Title="FilterConfig.FilterConfig constructor" Url="html/3c4b0268-3bc0-74a3-0345-dea934a8f696.htm" />
+  <HelpKINode Title="FilterConfig.RegisterGlobalFilters method" Url="html/8e7f45e4-75ae-2168-ed44-3a9baa0c3764.htm" />
+  <HelpKINode Title="GetAllComputedValues method" Url="html/1842fcec-3d7f-7f8d-8ec8-ab91aa2f34f1.htm" />
+  <HelpKINode Title="GetMaxResistance method" Url="html/257b545d-e7f4-53dd-7189-ba79bdd47e0d.htm" />
+  <HelpKINode Title="GetMinResistance method" Url="html/b7d37ccd-8470-74ee-d4bb-73a61d3c5ad6.htm" />
+  <HelpKINode Title="GetMultiplier method" Url="html/803662b1-d3fd-3545-af7f-c65a16c290e2.htm" />
+  <HelpKINode Title="GetResistance method" Url="html/4ef26386-7801-de22-d332-dc14e21ec7dd.htm" />
+  <HelpKINode Title="GetTolerance method" Url="html/5f3eb79e-a488-68f6-9361-e6ea7ae53989.htm" />
+  <HelpKINode Title="Handle method">
+    <HelpKINode Title="DatabaseLogger.Handle Method " Url="html/129838e1-bc11-dd85-d54c-7ca2d8115af3.htm" />
+    <HelpKINode Title="EmailLogger.Handle Method " Url="html/dbb685f4-b01a-8356-22b2-502530685ab6.htm" />
+    <HelpKINode Title="FileLogger.Handle Method " Url="html/f591a8b5-5642-95fc-689a-e23562dc7e42.htm" />
+    <HelpKINode Title="IExceptionManager.Handle Method " Url="html/a8ba05aa-32c2-9278-0847-a2854be5e1f3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HomeController class">
+    <HelpKINode Title="HomeController Class" Url="html/f91172d6-b0ba-a8ef-c87e-b1d28203819b.htm" />
+    <HelpKINode Title="constructor" Url="html/d24b9949-71c4-2833-bc42-184b1bd91e4a.htm" />
+    <HelpKINode Title="methods" Url="html/c8745174-630a-f029-eb45-07846b7283d7.htm" />
+    <HelpKINode Title="properties" Url="html/238a85df-ec4c-2c75-c5af-73df6e95a106.htm" />
+  </HelpKINode>
+  <HelpKINode Title="HomeController.About method" Url="html/823b9934-11e8-0622-6a5b-2a6775079a4e.htm" />
+  <HelpKINode Title="HomeController.CalculateOhms method" Url="html/3bb3387c-9cda-9d99-9604-a86959b7bffd.htm" />
+  <HelpKINode Title="HomeController.Contact method" Url="html/d24706b9-2f9a-f121-90bf-43983b337ae4.htm" />
+  <HelpKINode Title="HomeController.HomeController constructor" Url="html/d24b9949-71c4-2833-bc42-184b1bd91e4a.htm" />
+  <HelpKINode Title="HomeController.Index method" Url="html/bdee8a04-7861-724c-8c53-3827f32b1845.htm" />
+  <HelpKINode Title="IExceptionManager interface">
+    <HelpKINode Title="IExceptionManager Interface" Url="html/c68ff533-43b5-fe41-e593-a2372ae374f6.htm" />
+    <HelpKINode Title="methods" Url="html/a52eed11-d709-41b4-7327-17400c10b186.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IExceptionManager.Handle method" Url="html/a8ba05aa-32c2-9278-0847-a2854be5e1f3.htm" />
+  <HelpKINode Title="Index method" Url="html/bdee8a04-7861-724c-8c53-3827f32b1845.htm" />
+  <HelpKINode Title="Infrastructure.ExceptionManager namespace" Url="html/0d9c8fc7-253e-d2b5-57ef-a9af8b0122c1.htm" />
+  <HelpKINode Title="Infrastructure.ExceptionManager.DatabaseLogger class" Url="html/51781537-8e15-d922-7666-2c1b3670ba4a.htm" />
+  <HelpKINode Title="Infrastructure.ExceptionManager.EmailLogger class" Url="html/5711b30a-fc07-7100-02c9-edcb3d56862d.htm" />
+  <HelpKINode Title="Infrastructure.ExceptionManager.FileLogger class" Url="html/a2da5d98-59c0-c4c1-1541-54af74ce5cbc.htm" />
+  <HelpKINode Title="IOhmValueCalculator interface">
+    <HelpKINode Title="IOhmValueCalculator Interface" Url="html/cd42eaf9-eb3c-3e1e-c1a4-a3c5f1b92f29.htm" />
+    <HelpKINode Title="methods" Url="html/14021300-c869-6b13-8d98-03ccc1cf5b64.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IOhmValueCalculator.CalculateOhmValue method" Url="html/83e80e9d-e182-2d5a-1947-ee7f142f1ecc.htm" />
+  <HelpKINode Title="LoadResistorData method" Url="html/5a19985f-2abf-71d6-845a-ce728228468f.htm" />
+  <HelpKINode Title="MaxResistance property" Url="html/678d24b9-e228-373e-579e-83deaaea3410.htm" />
+  <HelpKINode Title="MinResistance property" Url="html/8341ad0e-a06f-4f93-4c41-ed138ebb503a.htm" />
+  <HelpKINode Title="Multiplier property" Url="html/490dab08-8833-bf35-558b-864dcaabf792.htm" />
+  <HelpKINode Title="MvcApplication class">
+    <HelpKINode Title="MvcApplication Class" Url="html/fe39cb64-bcb6-1c90-11ba-8b950946aa88.htm" />
+    <HelpKINode Title="constructor" Url="html/c618d0f5-1457-a669-c877-7e2bb940cd0b.htm" />
+    <HelpKINode Title="events" Url="html/f4bf30f4-a00b-8148-d95d-2b332ca5837d.htm" />
+    <HelpKINode Title="methods" Url="html/9329d804-bcd9-0fbd-a813-12a323d4608f.htm" />
+    <HelpKINode Title="properties" Url="html/46532e04-62ba-8d40-845e-3c465ff42583.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MvcApplication.Application_Start method" Url="html/7611b49a-84e5-5143-dee7-165027fb1746.htm" />
+  <HelpKINode Title="MvcApplication.MvcApplication constructor" Url="html/c618d0f5-1457-a669-c877-7e2bb940cd0b.htm" />
+  <HelpKINode Title="Name property" Url="html/0b2808a2-883b-bb40-f311-f60cc76ac082.htm" />
+  <HelpKINode Title="NO_COLOR field" Url="html/7d2e64f0-a429-aedb-730d-f6d67f7db964.htm" />
+  <HelpKINode Title="PREFIXES field" Url="html/f567c855-31ab-d424-ee76-fffab7e0fc70.htm" />
+  <HelpKINode Title="RegisterBundles method" Url="html/76d83de1-caf5-6cef-c583-df7ee882f063.htm" />
+  <HelpKINode Title="RegisterGlobalFilters method" Url="html/8e7f45e4-75ae-2168-ed44-3a9baa0c3764.htm" />
+  <HelpKINode Title="RegisterRoutes method" Url="html/59c2c206-f2fe-820a-c616-78afbb033b9d.htm" />
+  <HelpKINode Title="Resistance property" Url="html/dde8e873-6080-5178-614b-6ac95f5e4391.htm" />
+  <HelpKINode Title="Resistor class">
+    <HelpKINode Title="Resistor Class" Url="html/3fc0c263-0985-7792-6cbd-34f4caac9f47.htm" />
+    <HelpKINode Title="constructor" Url="html/c887ad23-f27c-2e3f-6615-55e79f8c8267.htm" />
+    <HelpKINode Title="fields" Url="html/a8901977-811a-8281-e086-70895f1d7ab6.htm" />
+    <HelpKINode Title="methods" Url="html/ed628226-eabe-a5c9-8443-9cc2b162b364.htm" />
+    <HelpKINode Title="properties" Url="html/d49885d2-23c5-2729-654e-111ccb4891a9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Resistor.Color property" Url="html/ad01cd11-8dc3-51df-2948-a9f7e55b334d.htm" />
+  <HelpKINode Title="Resistor.Digit property" Url="html/0437410f-52e7-bf68-0258-25eacd899b3c.htm" />
+  <HelpKINode Title="Resistor.LoadResistorData method" Url="html/5a19985f-2abf-71d6-845a-ce728228468f.htm" />
+  <HelpKINode Title="Resistor.MaxResistance property" Url="html/678d24b9-e228-373e-579e-83deaaea3410.htm" />
+  <HelpKINode Title="Resistor.MinResistance property" Url="html/8341ad0e-a06f-4f93-4c41-ed138ebb503a.htm" />
+  <HelpKINode Title="Resistor.Multiplier property" Url="html/490dab08-8833-bf35-558b-864dcaabf792.htm" />
+  <HelpKINode Title="Resistor.Name property" Url="html/0b2808a2-883b-bb40-f311-f60cc76ac082.htm" />
+  <HelpKINode Title="Resistor.NO_COLOR field" Url="html/7d2e64f0-a429-aedb-730d-f6d67f7db964.htm" />
+  <HelpKINode Title="Resistor.PREFIXES field" Url="html/f567c855-31ab-d424-ee76-fffab7e0fc70.htm" />
+  <HelpKINode Title="Resistor.Resistance property" Url="html/dde8e873-6080-5178-614b-6ac95f5e4391.htm" />
+  <HelpKINode Title="Resistor.Resistor constructor" Url="html/c887ad23-f27c-2e3f-6615-55e79f8c8267.htm" />
+  <HelpKINode Title="Resistor.Tolerance property" Url="html/d8fb802a-c058-71da-0cc6-e36902761882.htm" />
+  <HelpKINode Title="Resistor.UnitConversion method" Url="html/838f85e8-a3d4-3017-3cbc-92df5b6e2c2d.htm" />
+  <HelpKINode Title="ResistorComputations class">
+    <HelpKINode Title="ResistorComputations Class" Url="html/874d559b-82f8-41a5-cc7c-8d96237b0297.htm" />
+    <HelpKINode Title="constructor" Url="html/579ce497-9812-2a41-19ee-9dd00fd30313.htm" />
+    <HelpKINode Title="methods" Url="html/458bdbd9-cc89-7f76-dfd6-ff63f672fb8f.htm" />
+    <HelpKINode Title="properties" Url="html/4ad30db1-ba64-3dd6-4e21-daea9a9cdc4d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ResistorComputations.CalculateOhmValue method" Url="html/d14b162d-3eba-eeda-526c-e1de66ecf720.htm" />
+  <HelpKINode Title="ResistorComputations.GetAllComputedValues method" Url="html/1842fcec-3d7f-7f8d-8ec8-ab91aa2f34f1.htm" />
+  <HelpKINode Title="ResistorComputations.GetMaxResistance method" Url="html/257b545d-e7f4-53dd-7189-ba79bdd47e0d.htm" />
+  <HelpKINode Title="ResistorComputations.GetMinResistance method" Url="html/b7d37ccd-8470-74ee-d4bb-73a61d3c5ad6.htm" />
+  <HelpKINode Title="ResistorComputations.GetMultiplier method" Url="html/803662b1-d3fd-3545-af7f-c65a16c290e2.htm" />
+  <HelpKINode Title="ResistorComputations.GetResistance method" Url="html/4ef26386-7801-de22-d332-dc14e21ec7dd.htm" />
+  <HelpKINode Title="ResistorComputations.GetTolerance method" Url="html/5f3eb79e-a488-68f6-9361-e6ea7ae53989.htm" />
+  <HelpKINode Title="ResistorComputations.ResistorComputations constructor" Url="html/579ce497-9812-2a41-19ee-9dd00fd30313.htm" />
+  <HelpKINode Title="RouteConfig class">
+    <HelpKINode Title="RouteConfig Class" Url="html/4e9e9222-b790-f02b-f93b-708d8482a8fa.htm" />
+    <HelpKINode Title="constructor" Url="html/11e2b64d-59f0-cc6b-b089-dd045290f105.htm" />
+    <HelpKINode Title="methods" Url="html/6ad5359a-1ae0-d6de-ae4c-6899d2976dbe.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RouteConfig.RegisterRoutes method" Url="html/59c2c206-f2fe-820a-c616-78afbb033b9d.htm" />
+  <HelpKINode Title="RouteConfig.RouteConfig constructor" Url="html/11e2b64d-59f0-cc6b-b089-dd045290f105.htm" />
+  <HelpKINode Title="Services.UseCase namespace" Url="html/2a1b99f0-acbb-f5d8-a92f-c3fd0e25e0b0.htm" />
+  <HelpKINode Title="Services.UseCase.ResistorComputations class" Url="html/874d559b-82f8-41a5-cc7c-8d96237b0297.htm" />
+  <HelpKINode Title="Tolerance property" Url="html/d8fb802a-c058-71da-0cc6-e36902761882.htm" />
+  <HelpKINode Title="UI.Web namespace" Url="html/1a384d6c-6240-8238-7a68-55f710d30183.htm" />
+  <HelpKINode Title="UI.Web.BundleConfig class" Url="html/1149f150-6533-a635-9974-f6240e390384.htm" />
+  <HelpKINode Title="UI.Web.Controllers namespace" Url="html/d111441f-bd8a-8ad1-4c82-aae29711b886.htm" />
+  <HelpKINode Title="UI.Web.Controllers.HomeController class" Url="html/f91172d6-b0ba-a8ef-c87e-b1d28203819b.htm" />
+  <HelpKINode Title="UI.Web.FilterConfig class" Url="html/9b1ecaeb-58aa-4180-ae13-6128f5c2f22e.htm" />
+  <HelpKINode Title="UI.Web.MvcApplication class" Url="html/fe39cb64-bcb6-1c90-11ba-8b950946aa88.htm" />
+  <HelpKINode Title="UI.Web.RouteConfig class" Url="html/4e9e9222-b790-f02b-f93b-708d8482a8fa.htm" />
+  <HelpKINode Title="UnitConversion method" Url="html/838f85e8-a3d4-3017-3cbc-92df5b6e2c2d.htm" />
+</HelpKI>
