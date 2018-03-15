@@ -17,7 +17,7 @@ In order to get started with development, bring the code down to your local inst
 ```shell
 git clone https://github.com/figentropy/CalculateOhmValue.git
 
-cd CalculateOhmValue/
+cd CalculateOhmValue
 
 Using Visual Studio, open the solution OhmCalculator.sln
 ```
