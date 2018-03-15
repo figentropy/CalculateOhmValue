@@ -49,8 +49,5 @@ site that demonstrates all the capabilities of the solution, set the UI.Web proj
 
 ## Documentation
 
-Below is a link to a CHM file containing documentation of the project.
-
-- Project Documentation in CHM format: https://github.com/figentropy/CalculateOhmValue/blob/master/Documentation.chm
-
+Documentation of the project is found in the Documentation folder as both a CHM file or as a website viewable from the index.html file.
 
