@@ -29,7 +29,6 @@ The solution is comprised of 7 projects located in 5 separate solution folders. 
 site that demonstrates all the capabilities of the solution, set the UI.Web project as the default startup project by right clicking on the UI.Web project and selecting the "<i>Set as Startup Project</i>" option.
 
 
-```
 1. <b>Domain Folder</b>
    - Domain.Entity
    - Domain.Interface
@@ -46,5 +45,5 @@ site that demonstrates all the capabilities of the solution, set the UI.Web proj
 
 5. <b>UnitTest Folder</b>
    - UnitTest.OhmCalculator
-```
+
 
