@@ -29,7 +29,7 @@ The solution is comprised of 6 projects located in separate solution folders.  T
 site that demonstrates all the capabilities of the solution, set the UI.Web project as the default startup project by right clicking on the UI.Web project and selecting the "<i>Set as Startup Project</i>" option.
 
 <dl>
-  <dt style="color:blue;">Domain Folder</dt>
+  <dt>- ![#1589F0](https://placehold.it/15/1589F0/000000?text=+) `Domain Folder`</dt>
   <dd>Domain.Entity</dd>
   <dd>Domain.Interface</dd>
   <dt style="color:blue;">Infrastructure Folder</dt>
