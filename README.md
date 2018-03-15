@@ -23,3 +23,22 @@ Using Visual Studio, open the solution OhmCalculator.sln
 ```
 
 
+### Building
+
+The solution is comprised of 6 projects located in seperate solution folders.
+
+<dl>
+  <dt>Domain</dt>
+  <dd>Domain.Entity</dd>
+  <dd>Domain.Interface</dd>
+  <dt>Infrastructure</dt>
+  <dd>Infrastructure.ExceptionManager</dd>
+  <dt>Services</dt>
+  <dd>Services.UseCase</dd>
+  <dt>UI</dt>
+  <dd>UI.Web</dd>
+  <dt>UnitTest</dt>
+  <dd>UnitTest.OhmCalculator</dd>
+</dl>
+
+
