@@ -47,3 +47,10 @@ site that demonstrates all the capabilities of the solution, set the UI.Web proj
    - UnitTest.OhmCalculator
 
 
+## Documentation
+
+Below is a link to a CHM file containing documentation of the project.
+
+- Project Documentation in CHM format: https://github.com/figentropy/CalculateOhmValue/blob/master/Documentation.chm
+
+
